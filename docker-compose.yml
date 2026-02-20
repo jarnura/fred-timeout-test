@@ -1,0 +1,61 @@
+version: "3.8"
+
+services:
+  redis-cluster-1:
+    image: redis:7.2
+    container_name: redis-cluster-1
+    ports:
+      - "7001:7001"
+      - "17001:17001"
+    command: >
+      redis-server
+      --port 7001
+      --cluster-enabled yes
+      --cluster-config-file nodes.conf
+      --cluster-node-timeout 5000
+      --cluster-announce-ip 192.168.215.1
+      --cluster-announce-port 7001
+      --cluster-announce-bus-port 17001
+      --appendonly no
+      --save ""
+      --loglevel notice
+
+  redis-cluster-2:
+    image: redis:7.2
+    container_name: redis-cluster-2
+    cap_add:
+      - NET_ADMIN    # required for tc netem inside the container
+    ports:
+      - "7002:7002"
+      - "17002:17002"
+    command: >
+      redis-server
+      --port 7002
+      --cluster-enabled yes
+      --cluster-config-file nodes.conf
+      --cluster-node-timeout 5000
+      --cluster-announce-ip 192.168.215.1
+      --cluster-announce-port 7002
+      --cluster-announce-bus-port 17002
+      --appendonly no
+      --save ""
+      --loglevel notice
+
+  redis-cluster-3:
+    image: redis:7.2
+    container_name: redis-cluster-3
+    ports:
+      - "7003:7003"
+      - "17003:17003"
+    command: >
+      redis-server
+      --port 7003
+      --cluster-enabled yes
+      --cluster-config-file nodes.conf
+      --cluster-node-timeout 5000
+      --cluster-announce-ip 192.168.215.1
+      --cluster-announce-port 7003
+      --cluster-announce-bus-port 17003
+      --appendonly no
+      --save ""
+      --loglevel notice

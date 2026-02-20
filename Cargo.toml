@@ -1,0 +1,22 @@
+[package]
+name = "fred-timeout-test"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "misconfigured"
+path = "src/misconfigured.rs"
+
+[[bin]]
+name = "correct"
+path = "src/correct.rs"
+
+[[bin]]
+name = "cluster"
+path = "src/cluster.rs"
+
+[dependencies]
+fred = { path = "../fred.rs", features = ["check-unresponsive"] }
+tokio = { version = "1", features = ["full"] }
+env_logger = "0.11"
+log = "0.4"
