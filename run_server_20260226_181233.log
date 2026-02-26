@@ -1,0 +1,1350 @@
+=== Cluster pool + HTTP server debug harness ===
+  pool size: 3
+  node1 10.10.10.1:7001 → key 'alpha'  (slot 865)
+  node2 10.10.10.1:7002 → key 'key1'   (slot 9189)  ← will be paused
+  node3 10.10.10.1:7003 → key 'beta'   (slot 15419)
+  HTTP server: http://0.0.0.0:8181
+
+[2m2026-02-26T12:42:34.614482Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:34.614604Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:34.614499Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:34.614501Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:34.614646Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:34.614700Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:34.614978Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 5, delay: 5, jitter: 100 })
+[2m2026-02-26T12:42:34.614983Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 5, delay: 5, jitter: 100 })
+[2m2026-02-26T12:42:34.615022Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Syncing connection state with unresponsive network task.
+[2m2026-02-26T12:42:34.615035Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Adding 0 commands to retry buffer.
+[2m2026-02-26T12:42:34.615035Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Syncing connection state with unresponsive network task.
+[2m2026-02-26T12:42:34.615053Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Adding 0 commands to retry buffer.
+[2m2026-02-26T12:42:34.615069Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Synchronizing cluster state.
+[2m2026-02-26T12:42:34.615070Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Synchronizing cluster state.
+[2m2026-02-26T12:42:34.615144Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Attempting clustered connections to any of {Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }}
+[2m2026-02-26T12:42:34.615137Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 5, delay: 5, jitter: 100 })
+[2m2026-02-26T12:42:34.615204Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.615220Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Attempting clustered connections to any of {Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }}
+[2m2026-02-26T12:42:34.615227Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.615234Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.615200Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Syncing connection state with unresponsive network task.
+[2m2026-02-26T12:42:34.615245Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.615263Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Adding 0 commands to retry buffer.
+[2m2026-02-26T12:42:34.615279Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Synchronizing cluster state.
+[2m2026-02-26T12:42:34.615311Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Attempting clustered connections to any of {Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }}
+[2m2026-02-26T12:42:34.615324Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.615334Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.615373Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-P91Jj28s6O: Found 1 addresses for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.615383Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-ukgGpDKzOo: Found 1 addresses for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.615390Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-R9gLspcYlF: Found 1 addresses for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.615436Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:42:34.615448Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:42:34.615463Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:42:34.617899Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.617937Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.617947Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Skip setting client name.
+[2m2026-02-26T12:42:34.618024Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 24 bytes to 10.10.10.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.618083Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.618091Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.618097Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Skip setting client name.
+[2m2026-02-26T12:42:34.618111Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 24 bytes to 10.10.10.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.618324Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.618333Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.618339Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Skip setting client name.
+[2m2026-02-26T12:42:34.618352Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 24 bytes to 10.10.10.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.619880Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 5 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.619897Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 5 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.619926Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Read client ID: Ok(Number { data: 31, attributes: None })
+[2m2026-02-26T12:42:34.619954Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 26 bytes to 10.10.10.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.619972Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.620003Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 5 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.620012Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 5 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.620018Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 5 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.620020Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Read client ID: Ok(Number { data: 32, attributes: None })
+[2m2026-02-26T12:42:34.620027Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 5 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.620032Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 26 bytes to 10.10.10.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.620036Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Read client ID: Ok(Number { data: 33, attributes: None })
+[2m2026-02-26T12:42:34.620044Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.620049Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 26 bytes to 10.10.10.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.620061Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.620971Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 648 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.620982Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 648 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.621002Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.621009Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Checking cluster info for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.621021Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 27 bytes to 10.10.10.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.621033Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.621097Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 648 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.621106Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 648 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.621116Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.621123Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Checking cluster info for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.621134Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 27 bytes to 10.10.10.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.621145Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.621162Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 648 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.621170Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 648 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.621179Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.621186Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Checking cluster info for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.621196Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 27 bytes to 10.10.10.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.621208Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.622079Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 530 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.622089Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 530 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.622118Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Connected to 10.10.10.1:7001 (1/3)
+[2m2026-02-26T12:42:34.622131Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.622141Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 28 bytes to 10.10.10.1:7001. Buffer len: 28 (RESP2)
+[2m2026-02-26T12:42:34.622172Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.622197Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 530 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.622207Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 530 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.622214Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 530 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.622218Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Connected to 10.10.10.1:7001 (1/3)
+[2m2026-02-26T12:42:34.622228Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.622227Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 530 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.622239Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 28 bytes to 10.10.10.1:7001. Buffer len: 28 (RESP2)
+[2m2026-02-26T12:42:34.622243Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Connected to 10.10.10.1:7001 (1/3)
+[2m2026-02-26T12:42:34.622253Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.622255Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.622265Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 28 bytes to 10.10.10.1:7001. Buffer len: 28 (RESP2)
+[2m2026-02-26T12:42:34.622288Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.622424Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 295 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.622450Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 295 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.622490Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Recv CLUSTER SLOTS response: Array([Array([Integer(0), Integer(5460), Array([String("10.10.10.1"), Integer(7001), String("90e077d197ce5b1e23301a70bff7575be08ef8da"), Array([])])]), Array([Integer(5461), Integer(10922), Array([String("10.10.10.1"), Integer(7002), String("b57ee694415b45669a6e536a759066e5e8bebd40"), Array([])])]), Array([Integer(10923), Integer(16383), Array([String("10.10.10.1"), Integer(7003), String("173639363d2ff685aa284dadfd15da0eb8767acc"), Array([])])])])
+[2m2026-02-26T12:42:34.622512Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Rebuilding cluster state from host: 10.10.10.1
+[2m2026-02-26T12:42:34.622538Z[0m [35mTRACE[0m [2mfred::protocol::cluster[0m[2m:[0m fred-P91Jj28s6O: Skip modifying TLS hostnames.
+[2m2026-02-26T12:42:34.622567Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Changing cluster connections: ClusterChange { add: [Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }], remove: [] }
+[2m2026-02-26T12:42:34.622602Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-P91Jj28s6O: No `on_cluster_change` listeners.
+[2m2026-02-26T12:42:34.622622Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Connecting to cluster node 10.10.10.1:7001
+[2m2026-02-26T12:42:34.622676Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.622691Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.622768Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Connecting to cluster node 10.10.10.1:7002
+[2m2026-02-26T12:42:34.622777Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-P91Jj28s6O: Found 1 addresses for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.622780Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.622793Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.622815Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Connecting to cluster node 10.10.10.1:7003
+[2m2026-02-26T12:42:34.622821Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.622823Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-P91Jj28s6O: Found 1 addresses for 10.10.10.1:7002
+[2m2026-02-26T12:42:34.622829Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.622895Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:42:34.622914Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 295 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.622941Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 295 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.622943Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 295 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.622932Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-P91Jj28s6O: Found 1 addresses for 10.10.10.1:7003
+[2m2026-02-26T12:42:34.622977Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 295 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.622970Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Recv CLUSTER SLOTS response: Array([Array([Integer(0), Integer(5460), Array([String("10.10.10.1"), Integer(7001), String("90e077d197ce5b1e23301a70bff7575be08ef8da"), Array([])])]), Array([Integer(5461), Integer(10922), Array([String("10.10.10.1"), Integer(7002), String("b57ee694415b45669a6e536a759066e5e8bebd40"), Array([])])]), Array([Integer(10923), Integer(16383), Array([String("10.10.10.1"), Integer(7003), String("173639363d2ff685aa284dadfd15da0eb8767acc"), Array([])])])])
+[2m2026-02-26T12:42:34.622991Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Rebuilding cluster state from host: 10.10.10.1
+[2m2026-02-26T12:42:34.623019Z[0m [35mTRACE[0m [2mfred::protocol::cluster[0m[2m:[0m fred-R9gLspcYlF: Skip modifying TLS hostnames.
+[2m2026-02-26T12:42:34.623020Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Recv CLUSTER SLOTS response: Array([Array([Integer(0), Integer(5460), Array([String("10.10.10.1"), Integer(7001), String("90e077d197ce5b1e23301a70bff7575be08ef8da"), Array([])])]), Array([Integer(5461), Integer(10922), Array([String("10.10.10.1"), Integer(7002), String("b57ee694415b45669a6e536a759066e5e8bebd40"), Array([])])]), Array([Integer(10923), Integer(16383), Array([String("10.10.10.1"), Integer(7003), String("173639363d2ff685aa284dadfd15da0eb8767acc"), Array([])])])])
+[2m2026-02-26T12:42:34.623038Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Rebuilding cluster state from host: 10.10.10.1
+[2m2026-02-26T12:42:34.623039Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Changing cluster connections: ClusterChange { add: [Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }], remove: [] }
+[2m2026-02-26T12:42:34.623053Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-R9gLspcYlF: No `on_cluster_change` listeners.
+[2m2026-02-26T12:42:34.623061Z[0m [35mTRACE[0m [2mfred::protocol::cluster[0m[2m:[0m fred-ukgGpDKzOo: Skip modifying TLS hostnames.
+[2m2026-02-26T12:42:34.623062Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7002
+[2m2026-02-26T12:42:34.623071Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Connecting to cluster node 10.10.10.1:7001
+[2m2026-02-26T12:42:34.623079Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.623086Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.623087Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Changing cluster connections: ClusterChange { add: [Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }], remove: [] }
+[2m2026-02-26T12:42:34.623106Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-ukgGpDKzOo: No `on_cluster_change` listeners.
+[2m2026-02-26T12:42:34.623118Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7003
+[2m2026-02-26T12:42:34.623121Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Connecting to cluster node 10.10.10.1:7002
+[2m2026-02-26T12:42:34.623122Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-R9gLspcYlF: Found 1 addresses for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.623126Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Connecting to cluster node 10.10.10.1:7001
+[2m2026-02-26T12:42:34.623130Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.623134Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.623138Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.623141Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.623158Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Connecting to cluster node 10.10.10.1:7003
+[2m2026-02-26T12:42:34.623161Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Connecting to cluster node 10.10.10.1:7002
+[2m2026-02-26T12:42:34.623165Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.623168Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.623172Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.623175Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.623194Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:42:34.623213Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Connecting to cluster node 10.10.10.1:7003
+[2m2026-02-26T12:42:34.623220Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T12:42:34.623227Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.623222Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-R9gLspcYlF: Found 1 addresses for 10.10.10.1:7002
+[2m2026-02-26T12:42:34.623264Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7002
+[2m2026-02-26T12:42:34.623296Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-ukgGpDKzOo: Found 1 addresses for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.623313Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-R9gLspcYlF: Found 1 addresses for 10.10.10.1:7003
+[2m2026-02-26T12:42:34.623321Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-ukgGpDKzOo: Found 1 addresses for 10.10.10.1:7003
+[2m2026-02-26T12:42:34.623322Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7003
+[2m2026-02-26T12:42:34.623321Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-ukgGpDKzOo: Found 1 addresses for 10.10.10.1:7002
+[2m2026-02-26T12:42:34.623345Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:42:34.623399Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7002
+[2m2026-02-26T12:42:34.623447Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7003
+[2m2026-02-26T12:42:34.623667Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.623680Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.623689Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Skip setting client name.
+[2m2026-02-26T12:42:34.623721Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 24 bytes to 10.10.10.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.624004Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.624012Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.624020Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Skip setting client name.
+[2m2026-02-26T12:42:34.624034Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 24 bytes to 10.10.10.1:7002. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.624101Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.624109Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.624117Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Skip setting client name.
+[2m2026-02-26T12:42:34.624135Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 24 bytes to 10.10.10.1:7003. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.624167Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.624175Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.624181Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Skip setting client name.
+[2m2026-02-26T12:42:34.624198Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 24 bytes to 10.10.10.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.624259Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.624272Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.624280Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Skip setting client name.
+[2m2026-02-26T12:42:34.624292Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 24 bytes to 10.10.10.1:7002. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.624329Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.624337Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.624343Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Skip setting client name.
+[2m2026-02-26T12:42:34.624356Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 24 bytes to 10.10.10.1:7003. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.624414Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.624424Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.624431Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Skip setting client name.
+[2m2026-02-26T12:42:34.624442Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 24 bytes to 10.10.10.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.624484Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.624491Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.624498Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Skip setting client name.
+[2m2026-02-26T12:42:34.624512Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 24 bytes to 10.10.10.1:7002. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.624554Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T12:42:34.624561Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Skip authentication without credentials.
+[2m2026-02-26T12:42:34.624567Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Skip setting client name.
+[2m2026-02-26T12:42:34.624578Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 24 bytes to 10.10.10.1:7003. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.625610Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 5 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.625628Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 5 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.625643Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Read client ID: Ok(Number { data: 34, attributes: None })
+[2m2026-02-26T12:42:34.625660Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 26 bytes to 10.10.10.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.625674Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.625713Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 5 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.625723Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 5 bytes from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.625731Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Read client ID: Ok(Number { data: 16, attributes: None })
+[2m2026-02-26T12:42:34.625743Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 26 bytes to 10.10.10.1:7003. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.625755Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.625762Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 5 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.625773Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 5 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.625778Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 5 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.625781Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 5 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.625790Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Read client ID: Ok(Number { data: 15, attributes: None })
+[2m2026-02-26T12:42:34.625790Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Read client ID: Ok(Number { data: 16, attributes: None })
+[2m2026-02-26T12:42:34.625807Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 26 bytes to 10.10.10.1:7002. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.625807Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 26 bytes to 10.10.10.1:7002. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.625818Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.625822Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.625833Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 5 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.625840Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 5 bytes from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.625848Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Read client ID: Ok(Number { data: 15, attributes: None })
+[2m2026-02-26T12:42:34.625859Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 26 bytes to 10.10.10.1:7003. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.625869Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.626124Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 5 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.626133Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 5 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.626141Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Read client ID: Ok(Number { data: 36, attributes: None })
+[2m2026-02-26T12:42:34.626153Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 26 bytes to 10.10.10.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.626164Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.626189Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 5 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.626197Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 5 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.626205Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Read client ID: Ok(Number { data: 17, attributes: None })
+[2m2026-02-26T12:42:34.626196Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 5 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.626214Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 5 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.626216Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 26 bytes to 10.10.10.1:7002. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.626222Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Read client ID: Ok(Number { data: 35, attributes: None })
+[2m2026-02-26T12:42:34.626227Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.626234Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 26 bytes to 10.10.10.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.626238Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 5 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.626246Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 5 bytes from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.626247Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.626253Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Read client ID: Ok(Number { data: 17, attributes: None })
+[2m2026-02-26T12:42:34.626265Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 26 bytes to 10.10.10.1:7003. Buffer len: 26 (RESP2)
+[2m2026-02-26T12:42:34.626276Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.627210Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 648 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.627224Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 648 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.627245Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.627252Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Checking cluster info for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.627264Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 27 bytes to 10.10.10.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.627277Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.627306Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 648 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.627315Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 648 bytes from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.627326Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.627332Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Checking cluster info for 10.10.10.1:7003
+[2m2026-02-26T12:42:34.627368Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 27 bytes to 10.10.10.1:7003. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.627381Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.627490Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 648 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.627503Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 648 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.627520Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.627528Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Checking cluster info for 10.10.10.1:7002
+[2m2026-02-26T12:42:34.627539Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 27 bytes to 10.10.10.1:7002. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.627552Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.627580Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 648 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.627589Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 648 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.627593Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 648 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.627599Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.627603Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 648 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.627607Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-R9gLspcYlF: Checking cluster info for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.627608Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 648 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.627617Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 27 bytes to 10.10.10.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.627618Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 648 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.627617Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.627627Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Checking cluster info for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.627630Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.627632Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.627639Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 27 bytes to 10.10.10.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.627640Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Checking cluster info for 10.10.10.1:7002
+[2m2026-02-26T12:42:34.627655Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.627660Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 27 bytes to 10.10.10.1:7002. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.627668Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 648 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.627671Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.627676Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 648 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.627681Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 648 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.627688Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 648 bytes from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.627687Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.627702Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.627707Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Checking cluster info for 10.10.10.1:7002
+[2m2026-02-26T12:42:34.627709Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-P91Jj28s6O: Checking cluster info for 10.10.10.1:7003
+[2m2026-02-26T12:42:34.627719Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 27 bytes to 10.10.10.1:7003. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.627719Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 27 bytes to 10.10.10.1:7002. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.627733Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.627737Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.627748Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 648 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.627757Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 648 bytes from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.627770Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:42:34.627778Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-ukgGpDKzOo: Checking cluster info for 10.10.10.1:7003
+[2m2026-02-26T12:42:34.627789Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 27 bytes to 10.10.10.1:7003. Buffer len: 27 (RESP2)
+[2m2026-02-26T12:42:34.627802Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.628037Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 530 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.628046Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 530 bytes from 10.10.10.1:7001
+[EVENT][client-2][reconnect] reconnected to 10.10.10.1:7001
+[2m2026-02-26T12:42:34.628115Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Subscribe to interrupts for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.628134Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.628255Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 526 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.628267Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 526 bytes from 10.10.10.1:7003
+[EVENT][client-1][reconnect] reconnected to 10.10.10.1:7003
+[2m2026-02-26T12:42:34.628324Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Subscribe to interrupts for 10.10.10.1:7003
+[2m2026-02-26T12:42:34.628347Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.628511Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 526 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.628523Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 526 bytes from 10.10.10.1:7002
+[EVENT][client-1][reconnect] reconnected to 10.10.10.1:7002
+[2m2026-02-26T12:42:34.628579Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Subscribe to interrupts for 10.10.10.1:7002
+[2m2026-02-26T12:42:34.628589Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.628599Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 530 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.628603Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 526 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.628607Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 530 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.628612Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 526 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.628607Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 530 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.628630Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 530 bytes from 10.10.10.1:7001
+[EVENT][client-2][reconnect] reconnected to 10.10.10.1:7002
+[2m2026-02-26T12:42:34.628651Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Subscribe to interrupts for 10.10.10.1:7002
+[2m2026-02-26T12:42:34.628655Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 526 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.628662Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.628665Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Finish synchronizing cluster connections.
+[2m2026-02-26T12:42:34.628667Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Subscribe to interrupts for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.628662Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 526 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.628659Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Subscribe to interrupts for 10.10.10.1:7001
+[2m2026-02-26T12:42:34.628678Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.628686Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.628698Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Syncing connection state with unresponsive network task.
+[EVENT][client-0][reconnect] reconnected to 10.10.10.1:7001
+[EVENT][client-0][reconnect] reconnected to 10.10.10.1:7002
+[2m2026-02-26T12:42:34.628712Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Subscribe to interrupts for 10.10.10.1:7002
+[2m2026-02-26T12:42:34.628723Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.628734Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Starting command processing stream...
+[EVENT][client-1][reconnect] reconnected to 10.10.10.1:7001
+[2m2026-02-26T12:42:34.628785Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 526 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.628796Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 526 bytes from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.628820Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Finish synchronizing cluster connections.
+[2m2026-02-26T12:42:34.628823Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Subscribe to interrupts for 10.10.10.1:7003
+[2m2026-02-26T12:42:34.628833Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.628836Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Syncing connection state with unresponsive network task.
+[2m2026-02-26T12:42:34.628851Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Starting command processing stream...
+[2m2026-02-26T12:42:34.628852Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 526 bytes from 10.10.10.1:7003 (RESP2).
+[EVENT][client-0][reconnect] reconnected to 10.10.10.1:7003
+[2m2026-02-26T12:42:34.628859Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 526 bytes from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.628886Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Finish synchronizing cluster connections.
+[2m2026-02-26T12:42:34.628887Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Subscribe to interrupts for 10.10.10.1:7003
+[2m2026-02-26T12:42:34.628899Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.628904Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Syncing connection state with unresponsive network task.
+[OK] Pool connected (3 clients, 3 connections per node).
+[2m2026-02-26T12:42:34.628919Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Starting command processing stream...
+[EVENT][client-2][reconnect] reconnected to 10.10.10.1:7003
+[2m2026-02-26T12:42:34.628969Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-R9gLspcYlF: Sending command SET (0) to router.
+[2m2026-02-26T12:42:34.628996Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Recv command: RouterCommand { kind: "Command", command: "SET" }
+[2m2026-02-26T12:42:34.629013Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:42:34.629059Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Writing command: RedisCommand { command: "SET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:42:34.629072Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-R9gLspcYlF: Pipeline check SET: true
+[2m2026-02-26T12:42:34.629085Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Writing command `SET` to 10.10.10.1:7001
+[2m2026-02-26T12:42:34.629094Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Writing SET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:42:34.629104Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Sending command SET (0) to 10.10.10.1:7001
+[2m2026-02-26T12:42:34.629112Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7001
+[2m2026-02-26T12:42:34.629124Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 47 bytes to 10.10.10.1:7001. Buffer len: 47 (RESP2)
+[2m2026-02-26T12:42:34.629163Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Sent command to 10.10.10.1:7001. Flushed: true
+[2m2026-02-26T12:42:34.629404Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 5 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.629414Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 5 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.629423Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Parsing response frame from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.629432Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Checking response to SET (0)
+[2m2026-02-26T12:42:34.629438Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Handling clustered response kind: Respond
+[2m2026-02-26T12:42:34.629459Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-R9gLspcYlF: Respond to caller from 10.10.10.1:7001 for SET with SimpleString
+[2m2026-02-26T12:42:34.629477Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.629516Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-R9gLspcYlF: Sending command SET (0) to router.
+[2m2026-02-26T12:42:34.629534Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:42:34.629546Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Recv command: RouterCommand { kind: "Command", command: "SET" }
+[2m2026-02-26T12:42:34.629579Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Writing command: RedisCommand { command: "SET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:42:34.629591Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-R9gLspcYlF: Pipeline check SET: true
+[2m2026-02-26T12:42:34.629602Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Writing command `SET` to 10.10.10.1:7002
+[2m2026-02-26T12:42:34.629610Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Writing SET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:42:34.629618Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Sending command SET (0) to 10.10.10.1:7002
+[2m2026-02-26T12:42:34.629626Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7002
+[2m2026-02-26T12:42:34.629637Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 46 bytes to 10.10.10.1:7002. Buffer len: 46 (RESP2)
+[2m2026-02-26T12:42:34.629661Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Sent command to 10.10.10.1:7002. Flushed: true
+[2m2026-02-26T12:42:34.629861Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 5 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.629869Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 5 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.629876Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Parsing response frame from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.629882Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Checking response to SET (0)
+[2m2026-02-26T12:42:34.629888Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Handling clustered response kind: Respond
+[2m2026-02-26T12:42:34.629895Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-R9gLspcYlF: Respond to caller from 10.10.10.1:7002 for SET with SimpleString
+[2m2026-02-26T12:42:34.629907Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.629927Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-R9gLspcYlF: Sending command SET (0) to router.
+[2m2026-02-26T12:42:34.629942Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:42:34.629950Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Recv command: RouterCommand { kind: "Command", command: "SET" }
+[2m2026-02-26T12:42:34.629978Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Writing command: RedisCommand { command: "SET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:42:34.629992Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-R9gLspcYlF: Pipeline check SET: true
+[2m2026-02-26T12:42:34.630003Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Writing command `SET` to 10.10.10.1:7003
+[2m2026-02-26T12:42:34.630010Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Writing SET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:42:34.630019Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Sending command SET (0) to 10.10.10.1:7003
+[2m2026-02-26T12:42:34.630027Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7003
+[2m2026-02-26T12:42:34.630039Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 46 bytes to 10.10.10.1:7003. Buffer len: 46 (RESP2)
+[2m2026-02-26T12:42:34.630063Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Sent command to 10.10.10.1:7003. Flushed: true
+[2m2026-02-26T12:42:34.630245Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 5 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.630254Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 5 bytes from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.630261Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Parsing response frame from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.630268Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Checking response to SET (0)
+[2m2026-02-26T12:42:34.630274Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Handling clustered response kind: Respond
+[2m2026-02-26T12:42:34.630280Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-R9gLspcYlF: Respond to caller from 10.10.10.1:7003 for SET with SimpleString
+[2m2026-02-26T12:42:34.630292Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[OK] SET alpha→node1, key1→node2, beta→node3
+[2m2026-02-26T12:42:34.630332Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-P91Jj28s6O: Sending command GET (0) to router.
+[2m2026-02-26T12:42:34.630350Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:42:34.630358Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-26T12:42:34.630371Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Writing command: RedisCommand { command: "GET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:42:34.630381Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-P91Jj28s6O: Pipeline check GET: true
+[2m2026-02-26T12:42:34.630389Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Writing command `GET` to 10.10.10.1:7001
+[2m2026-02-26T12:42:34.630395Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:42:34.630403Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Sending command GET (0) to 10.10.10.1:7001
+[2m2026-02-26T12:42:34.630411Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7001
+[2m2026-02-26T12:42:34.630421Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 24 bytes to 10.10.10.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T12:42:34.630449Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Sent command to 10.10.10.1:7001. Flushed: true
+[2m2026-02-26T12:42:34.630631Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 23 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.630642Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 23 bytes from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.630650Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Parsing response frame from 10.10.10.1:7001
+[2m2026-02-26T12:42:34.630657Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Checking response to GET (0)
+[2m2026-02-26T12:42:34.630662Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Handling clustered response kind: Respond
+[2m2026-02-26T12:42:34.630668Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-P91Jj28s6O: Respond to caller from 10.10.10.1:7001 for GET with BlobString
+[2m2026-02-26T12:42:34.630698Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7001 (RESP2).
+[2m2026-02-26T12:42:34.630699Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-ukgGpDKzOo: Sending command GET (0) to router.
+[2m2026-02-26T12:42:34.630725Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:42:34.630739Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-26T12:42:34.630755Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Writing command: RedisCommand { command: "GET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:42:34.630766Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-ukgGpDKzOo: Pipeline check GET: true
+[2m2026-02-26T12:42:34.630777Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Writing command `GET` to 10.10.10.1:7002
+[2m2026-02-26T12:42:34.630784Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:42:34.630793Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Sending command GET (0) to 10.10.10.1:7002
+[2m2026-02-26T12:42:34.630802Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7002
+[2m2026-02-26T12:42:34.630815Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 23 bytes to 10.10.10.1:7002. Buffer len: 23 (RESP2)
+[2m2026-02-26T12:42:34.630853Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Sent command to 10.10.10.1:7002. Flushed: true
+[2m2026-02-26T12:42:34.631036Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 23 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.631048Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 23 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.631072Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Parsing response frame from 10.10.10.1:7002
+[2m2026-02-26T12:42:34.631081Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Checking response to GET (0)
+[2m2026-02-26T12:42:34.631088Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Handling clustered response kind: Respond
+[2m2026-02-26T12:42:34.631094Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-ukgGpDKzOo: Respond to caller from 10.10.10.1:7002 for GET with BlobString
+[2m2026-02-26T12:42:34.631108Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:42:34.631121Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-R9gLspcYlF: Sending command GET (0) to router.
+[2m2026-02-26T12:42:34.631135Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:42:34.631160Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-26T12:42:34.631175Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Writing command: RedisCommand { command: "GET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:42:34.631187Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-R9gLspcYlF: Pipeline check GET: true
+[2m2026-02-26T12:42:34.631196Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Writing command `GET` to 10.10.10.1:7003
+[2m2026-02-26T12:42:34.631203Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:42:34.631212Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Sending command GET (0) to 10.10.10.1:7003
+[2m2026-02-26T12:42:34.631218Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7003
+[2m2026-02-26T12:42:34.631229Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 23 bytes to 10.10.10.1:7003. Buffer len: 23 (RESP2)
+[2m2026-02-26T12:42:34.631254Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Sent command to 10.10.10.1:7003. Flushed: true
+[2m2026-02-26T12:42:34.631447Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 23 bytes from 10.10.10.1:7003 (RESP2).
+[2m2026-02-26T12:42:34.631461Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 23 bytes from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.631470Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Parsing response frame from 10.10.10.1:7003
+[2m2026-02-26T12:42:34.631479Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Checking response to GET (0)
+[2m2026-02-26T12:42:34.631485Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Handling clustered response kind: Respond
+[2m2026-02-26T12:42:34.631493Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-R9gLspcYlF: Respond to caller from 10.10.10.1:7003 for GET with BlobString
+[2m2026-02-26T12:42:34.631512Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7003 (RESP2).
+[OK] Pre-pause reads: alpha=Some("value-from-node1") key1=Some("value-from-node2") beta=Some("value-from-node3")
+
+[OK] HTTP server listening on http://0.0.0.0:8181
+
+  ── Read / Write ───────────────────────────────────────────────
+  curl http://localhost:8181/get/alpha
+  curl http://localhost:8181/get/key1
+  curl http://localhost:8181/get/beta
+  curl http://localhost:8181/set/mykey/myval
+
+  ── tc netem control (docker exec redis-cluster-2) ─────────────
+  curl -X POST   'http://localhost:8181/pause?ms=15000'  # inject 15s delay
+  curl -X POST   'http://localhost:8181/pause?ms=3000'   # inject 3s delay
+  curl -X DELETE  http://localhost:8181/pause             # remove delay
+
+  ── Status ─────────────────────────────────────────────────────
+  curl http://localhost:8181/status
+
+  Press Ctrl+C to exit.
+
+[2m2026-02-26T12:42:36.616515Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:36.616515Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:36.616527Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:36.616599Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:36.616603Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:36.616626Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:38.618190Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:38.618216Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:38.618245Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:38.618267Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:38.618245Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:38.618283Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:40.620163Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:40.620179Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:40.620189Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:40.620190Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:40.620188Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:40.620213Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:42.622086Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:42.622156Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:42.622220Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:42.622241Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:42.622276Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:42.622297Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:44.623635Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:44.623635Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:44.623666Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:44.623658Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:44.623675Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:44.623682Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:46.625464Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:46.625486Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:46.625457Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:46.625457Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:46.625520Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:46.625521Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:48.627176Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:48.627210Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:48.627183Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:48.627246Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:48.627176Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:48.627273Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:50.629116Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:50.629117Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:50.629132Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:50.629152Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:50.629160Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:50.629171Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:52.631099Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:52.631095Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:52.631123Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:52.631143Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:52.631153Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:52.631160Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:54.631456Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:54.631457Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:54.631456Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:54.631530Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:54.631542Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:54.631537Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:56.633808Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:56.633809Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:56.633820Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:56.633847Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:56.633849Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:56.633855Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:42:58.634480Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:42:58.634480Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:42:58.634521Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:42:58.634480Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:42:58.634549Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:42:58.634557Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:00.636192Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:00.636220Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:00.636210Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:00.636233Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:00.636241Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:00.636249Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:02.638301Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:02.638315Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:02.638329Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:02.638290Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:02.638351Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:02.638352Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:04.639876Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:04.639914Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:04.639888Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:04.639878Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:04.639933Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:04.639936Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:06.642021Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:06.642021Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:06.642021Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:06.642065Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:06.642065Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:06.642071Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:08.642742Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:08.642750Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:08.642750Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:08.642782Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:08.642774Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:08.642782Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:10.644764Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:10.644763Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:10.644821Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:10.644766Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:10.644833Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:10.644878Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:12.646748Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:12.646748Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:12.646801Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:12.646748Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:12.646821Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:12.646866Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:14.648593Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:14.648636Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:14.648593Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:14.648667Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:14.648694Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:14.648729Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:16.650884Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:16.650884Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:16.650937Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:16.650884Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:16.650970Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:16.651002Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:17.721191Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-ukgGpDKzOo: Sending command GET (0) to router.
+[2m2026-02-26T12:43:17.721231Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:43:17.721278Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-26T12:43:17.721347Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Writing command: RedisCommand { command: "GET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:43:17.721363Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-ukgGpDKzOo: Pipeline check GET: true
+[2m2026-02-26T12:43:17.721393Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Writing command `GET` to 10.10.10.1:7002
+[2m2026-02-26T12:43:17.721410Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:43:17.721485Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Sending command GET (0) to 10.10.10.1:7002
+[2m2026-02-26T12:43:17.721518Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7002
+[2m2026-02-26T12:43:17.721550Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 23 bytes to 10.10.10.1:7002. Buffer len: 23 (RESP2)
+[2m2026-02-26T12:43:17.721662Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Sent command to 10.10.10.1:7002. Flushed: true
+[2m2026-02-26T12:43:17.723926Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 23 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:43:17.723956Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 23 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:43:17.723972Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Parsing response frame from 10.10.10.1:7002
+[2m2026-02-26T12:43:17.723982Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Checking response to GET (0)
+[2m2026-02-26T12:43:17.723991Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Handling clustered response kind: Respond
+[2m2026-02-26T12:43:17.723999Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-ukgGpDKzOo: Respond to caller from 10.10.10.1:7002 for GET with BlobString
+[2m2026-02-26T12:43:17.724021Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:43:18.653744Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:18.653774Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:18.653764Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:18.654070Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:18.654132Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:18.654141Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:20.655656Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:20.655656Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:20.655703Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:20.655704Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:20.655659Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:20.655741Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:22.656967Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:22.656964Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:22.657013Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:22.656964Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:22.657021Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:22.657037Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:24.659261Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:24.659327Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:24.659388Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:24.659410Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:24.659447Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:24.659469Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:26.661315Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:26.661316Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:26.661376Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:26.661315Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:26.661399Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:26.661412Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:26.815843Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-R9gLspcYlF: Sending command GET (0) to router.
+[2m2026-02-26T12:43:26.815893Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:43:26.815946Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-26T12:43:26.816047Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Writing command: RedisCommand { command: "GET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:43:26.816071Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-R9gLspcYlF: Pipeline check GET: true
+[2m2026-02-26T12:43:26.816102Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Writing command `GET` to 10.10.10.1:7002
+[2m2026-02-26T12:43:26.816119Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:43:26.816136Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Sending command GET (0) to 10.10.10.1:7002
+[2m2026-02-26T12:43:26.816152Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7002
+[2m2026-02-26T12:43:26.816183Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 23 bytes to 10.10.10.1:7002. Buffer len: 23 (RESP2)
+[2m2026-02-26T12:43:26.816276Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Sent command to 10.10.10.1:7002. Flushed: true
+[2m2026-02-26T12:43:26.818308Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 23 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:43:26.818334Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 23 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:43:26.818351Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Parsing response frame from 10.10.10.1:7002
+[2m2026-02-26T12:43:26.818362Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Checking response to GET (0)
+[2m2026-02-26T12:43:26.818373Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Handling clustered response kind: Respond
+[2m2026-02-26T12:43:26.818384Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-R9gLspcYlF: Respond to caller from 10.10.10.1:7002 for GET with BlobString
+[2m2026-02-26T12:43:26.818405Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:43:28.663544Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:28.663545Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:28.663604Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:28.663544Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:28.663625Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:28.663671Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:30.665607Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:30.665607Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:30.665657Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:30.665695Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:30.665695Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:30.665730Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:31.177735Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-P91Jj28s6O: Sending command GET (0) to router.
+[2m2026-02-26T12:43:31.177850Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:43:31.178059Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-26T12:43:31.178246Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Writing command: RedisCommand { command: "GET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:43:31.178297Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-P91Jj28s6O: Pipeline check GET: true
+[2m2026-02-26T12:43:31.178370Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Writing command `GET` to 10.10.10.1:7002
+[2m2026-02-26T12:43:31.178448Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:43:31.178483Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Sending command GET (0) to 10.10.10.1:7002
+[2m2026-02-26T12:43:31.178508Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7002
+[2m2026-02-26T12:43:31.178567Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 23 bytes to 10.10.10.1:7002. Buffer len: 23 (RESP2)
+[2m2026-02-26T12:43:31.178794Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Sent command to 10.10.10.1:7002. Flushed: true
+[2m2026-02-26T12:43:31.179728Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 23 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:43:31.179758Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 23 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:43:31.179780Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Parsing response frame from 10.10.10.1:7002
+[2m2026-02-26T12:43:31.179793Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Checking response to GET (0)
+[2m2026-02-26T12:43:31.179804Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Handling clustered response kind: Respond
+[2m2026-02-26T12:43:31.179816Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-P91Jj28s6O: Respond to caller from 10.10.10.1:7002 for GET with BlobString
+[2m2026-02-26T12:43:31.179847Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:43:32.668632Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:32.668663Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:32.668655Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:32.668655Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:32.668685Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:32.668698Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:34.670645Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:34.670645Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:34.670685Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:34.670685Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:34.670705Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:34.670723Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:36.673332Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:36.673362Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:36.673332Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:36.673371Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:36.673384Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:36.673388Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[PAUSE] tc netem delay 15000ms applied to redis-cluster-2 eth0
+[2m2026-02-26T12:43:38.674343Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:38.674365Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:38.674371Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:38.674343Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:38.674378Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:38.674409Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:40.675390Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:40.675390Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:40.675438Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:40.675441Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:40.675457Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:40.675467Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[PAUSE] tc netem delay 15000ms applied to redis-cluster-2 eth0
+[2m2026-02-26T12:43:42.392531Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-ukgGpDKzOo: Sending command GET (0) to router.
+[2m2026-02-26T12:43:42.392711Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:43:42.392940Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-26T12:43:42.393443Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Writing command: RedisCommand { command: "GET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:43:42.393501Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-ukgGpDKzOo: Pipeline check GET: true
+[2m2026-02-26T12:43:42.393583Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Writing command `GET` to 10.10.10.1:7002
+[2m2026-02-26T12:43:42.393601Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:43:42.393628Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Sending command GET (0) to 10.10.10.1:7002
+[2m2026-02-26T12:43:42.393657Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7002
+[2m2026-02-26T12:43:42.393710Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Encoded 23 bytes to 10.10.10.1:7002. Buffer len: 23 (RESP2)
+[2m2026-02-26T12:43:42.393847Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-ukgGpDKzOo: Sent command to 10.10.10.1:7002. Flushed: true
+[2m2026-02-26T12:43:42.677674Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:42.677668Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:42.677715Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:42.677668Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:42.677724Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:42.677775Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:44.680112Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:44.680112Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:44.680167Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:44.680112Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:44.680183Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:44.680198Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Server 10.10.10.1:7002 unresponsive after 2286 ms
+[2m2026-02-26T12:43:44.680227Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:44.680263Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Interrupting reader task for 10.10.10.1:7002
+[2m2026-02-26T12:43:44.680317Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[EVENT][client-0][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:43:46.682462Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:46.682461Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:46.682508Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:46.682515Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:46.682546Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:46.682541Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:46.682578Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Server 10.10.10.1:7002 unresponsive after 4288 ms
+[2m2026-02-26T12:43:46.682631Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-0][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:43:46.682692Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:43:48.685315Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:48.685366Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:48.685319Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:48.685394Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Server 10.10.10.1:7002 unresponsive after 6291 ms
+[2m2026-02-26T12:43:48.685315Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:48.685421Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:48.685421Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:48.685458Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-0][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:43:48.685525Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:43:50.686748Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:50.686748Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:50.686798Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:50.686748Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:50.686813Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:50.686823Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:50.686849Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Server 10.10.10.1:7002 unresponsive after 8293 ms
+[2m2026-02-26T12:43:50.686894Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-0][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:43:50.687001Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:43:52.688274Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:52.688336Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:52.688337Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:52.688331Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:52.688369Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Server 10.10.10.1:7002 unresponsive after 10294 ms
+[2m2026-02-26T12:43:52.688381Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:52.688408Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:52.688435Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-0][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:43:52.688496Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:43:54.690033Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:54.690057Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:54.690078Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:54.690033Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:54.690083Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:54.690104Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:54.690126Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Server 10.10.10.1:7002 unresponsive after 12296 ms
+[2m2026-02-26T12:43:54.690170Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-0][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:43:54.690215Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:43:56.692586Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:56.692588Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:56.692621Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:56.692586Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:56.692634Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:56.692690Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:43:56.692734Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Server 10.10.10.1:7002 unresponsive after 14299 ms
+[2m2026-02-26T12:43:56.692791Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-0][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:43:56.692860Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-ukgGpDKzOo: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:43:57.396696Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 23 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:43:57.396800Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Parsed 23 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:43:57.396844Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Parsing response frame from 10.10.10.1:7002
+[2m2026-02-26T12:43:57.396869Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Checking response to GET (0)
+[2m2026-02-26T12:43:57.396887Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-ukgGpDKzOo: Handling clustered response kind: Respond
+[2m2026-02-26T12:43:57.396905Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-ukgGpDKzOo: Respond to caller from 10.10.10.1:7002 for GET with BlobString
+[2m2026-02-26T12:43:57.396967Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-ukgGpDKzOo: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:43:58.694935Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:43:58.694971Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:43:58.694935Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:43:58.694992Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:43:58.694991Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:43:58.695010Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:00.696954Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:00.696995Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:00.696954Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:00.696954Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:00.697056Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:00.697068Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:02.699379Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:02.699372Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:02.699372Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:02.699447Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:02.699489Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:02.699490Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:04.701296Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:04.701291Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:04.701291Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:04.701343Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:04.701368Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:04.701368Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:06.702512Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:06.702514Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:06.702581Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:06.702512Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:06.702593Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:06.702609Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:08.704860Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:08.704886Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:08.704863Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:08.704901Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:08.704906Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:08.704964Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:10.707344Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:10.707377Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:10.707377Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:10.707416Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:10.707390Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:10.707426Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:12.709443Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:12.709480Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:12.709504Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:12.709439Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:12.709509Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:12.709580Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:13.745206Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-R9gLspcYlF: Sending command GET (0) to router.
+[2m2026-02-26T12:44:13.745278Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:44:13.745345Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-26T12:44:13.746009Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Writing command: RedisCommand { command: "GET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:44:13.746034Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-R9gLspcYlF: Pipeline check GET: true
+[2m2026-02-26T12:44:13.746263Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Writing command `GET` to 10.10.10.1:7002
+[2m2026-02-26T12:44:13.746285Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:44:13.746327Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Sending command GET (0) to 10.10.10.1:7002
+[2m2026-02-26T12:44:13.746346Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7002
+[2m2026-02-26T12:44:13.746403Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Encoded 23 bytes to 10.10.10.1:7002. Buffer len: 23 (RESP2)
+[2m2026-02-26T12:44:13.746491Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-R9gLspcYlF: Sent command to 10.10.10.1:7002. Flushed: true
+[2m2026-02-26T12:44:14.711644Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:14.711648Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:14.711644Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:14.711686Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:14.711694Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:14.711708Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:16.714042Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:16.714093Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:16.714042Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:16.714042Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:16.714124Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Server 10.10.10.1:7002 unresponsive after 2967 ms
+[2m2026-02-26T12:44:16.714128Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:16.714134Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:16.714197Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Interrupting reader task for 10.10.10.1:7002
+[2m2026-02-26T12:44:16.714246Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[EVENT][client-1][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:44:18.716440Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:18.716441Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:18.716502Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:18.716453Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:18.716535Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:18.716557Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:18.716594Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Server 10.10.10.1:7002 unresponsive after 4970 ms
+[2m2026-02-26T12:44:18.716652Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-1][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:44:18.716727Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:44:20.717359Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:20.717374Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:20.717412Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:20.717359Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:20.717438Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Server 10.10.10.1:7002 unresponsive after 6970 ms
+[2m2026-02-26T12:44:20.717433Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:20.717484Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Interrupting reader task for 10.10.10.1:7002
+[2m2026-02-26T12:44:20.717486Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:20.717530Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[EVENT][client-1][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:44:22.719855Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:22.719864Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:22.719899Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:22.719855Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:22.719917Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:22.719932Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:22.719936Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Server 10.10.10.1:7002 unresponsive after 8973 ms
+[2m2026-02-26T12:44:22.719979Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Interrupting reader task for 10.10.10.1:7002
+[2m2026-02-26T12:44:22.720021Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[EVENT][client-1][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:44:24.720941Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:24.720941Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:24.721024Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:24.721038Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:24.722077Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:24.722097Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:24.722118Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Server 10.10.10.1:7002 unresponsive after 10975 ms
+[2m2026-02-26T12:44:24.722159Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Interrupting reader task for 10.10.10.1:7002
+[2m2026-02-26T12:44:24.722206Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[EVENT][client-1][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:44:26.723523Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:26.723523Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:26.723623Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:26.723637Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:26.723638Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:26.723667Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:26.723686Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Server 10.10.10.1:7002 unresponsive after 12977 ms
+[2m2026-02-26T12:44:26.723746Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-1][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:44:26.723815Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:44:28.725827Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:28.725819Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:28.725819Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:28.725861Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:28.725867Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:28.725869Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:28.725895Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Server 10.10.10.1:7002 unresponsive after 14979 ms
+[2m2026-02-26T12:44:28.725937Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Interrupting reader task for 10.10.10.1:7002
+[2m2026-02-26T12:44:28.725982Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-R9gLspcYlF: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[EVENT][client-1][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:44:28.751363Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 23 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:44:28.751416Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Parsed 23 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:44:28.751442Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Parsing response frame from 10.10.10.1:7002
+[2m2026-02-26T12:44:28.751460Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Checking response to GET (0)
+[2m2026-02-26T12:44:28.751474Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-R9gLspcYlF: Handling clustered response kind: Respond
+[2m2026-02-26T12:44:28.751564Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-R9gLspcYlF: Respond to caller from 10.10.10.1:7002 for GET with BlobString
+[2m2026-02-26T12:44:28.751621Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-R9gLspcYlF: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:44:30.728083Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:30.728083Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:30.728136Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:30.728086Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:30.728181Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:30.728174Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:32.730421Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:32.730421Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:32.730464Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:32.730484Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:32.730488Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:32.730516Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:34.732698Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:34.732737Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:34.732698Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:34.732705Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:34.732774Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:34.732779Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:36.734235Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:36.734227Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:36.734241Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:36.734311Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:36.734280Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:36.734340Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:38.736213Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:38.736212Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:38.736265Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:38.736212Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:38.736285Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:38.736325Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:40.738584Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:40.738584Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:40.738584Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:40.738633Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:40.738664Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:40.738683Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:42.740678Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:42.740728Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:42.740691Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:42.740678Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:42.740754Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:42.740763Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:44.742337Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:44.742366Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:44.742371Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:44.742399Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:44.742426Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:44.742426Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:46.744423Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:46.744476Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:46.744489Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:46.744505Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:46.744442Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:46.744598Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:48.746698Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:48.746732Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:48.746732Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:48.746746Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:48.746778Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:48.746788Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:50.748304Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:50.748313Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:50.748304Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:50.748376Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:50.748378Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:50.748416Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:52.750829Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:52.750876Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:52.750824Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:52.750831Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:52.750905Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:52.750921Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:54.752540Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:54.752588Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:54.752562Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:54.752540Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:54.752640Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:54.752640Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:56.754435Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:56.754486Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:56.754435Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:56.754435Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:56.754517Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:44:56.754558Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:58.756915Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:44:58.756968Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:44:58.756909Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:44:58.756984Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:44:58.756996Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:44:58.757017Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:00.759276Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:00.759276Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:00.759282Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:00.759329Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:00.759332Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:00.759378Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:02.761935Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:02.761935Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:02.761935Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:02.761988Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:02.762014Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:02.762022Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:04.762666Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:04.762666Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:04.762713Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:04.762666Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:04.762729Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:04.762773Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:06.765103Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:06.765136Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:06.765103Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:06.765165Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:06.765167Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:06.765184Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:08.767794Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:08.767794Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:08.767843Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:08.767853Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:08.767863Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:08.767881Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:10.768594Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:10.768615Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:10.768641Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:10.768615Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:10.768662Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:10.768677Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:12.770017Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:12.770038Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:12.770041Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:12.770072Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:12.770071Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:12.770095Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:14.770749Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:14.770749Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:14.770804Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:14.770814Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:14.770847Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:14.770857Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:16.772809Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:16.772847Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:16.772859Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:16.772860Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:16.772897Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:16.772926Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:18.774955Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:18.774998Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:18.774991Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:18.774955Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:18.775053Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:18.775054Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:20.776391Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:20.776391Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:20.776446Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:20.776391Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:20.776464Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:20.776479Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:22.779329Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:22.779330Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:22.779382Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:22.779330Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:22.779400Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:22.779454Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:24.780770Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:24.780823Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:24.780770Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:24.780815Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:24.780865Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:24.780870Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:25.459711Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-P91Jj28s6O: Sending command GET (0) to router.
+[2m2026-02-26T12:45:25.459784Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-26T12:45:25.459852Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-26T12:45:25.459963Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Writing command: RedisCommand { command: "GET", attempts_remaining: 5, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(5s), no_backpressure: false }
+[2m2026-02-26T12:45:25.459989Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-P91Jj28s6O: Pipeline check GET: true
+[2m2026-02-26T12:45:25.460034Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Writing command `GET` to 10.10.10.1:7002
+[2m2026-02-26T12:45:25.460049Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-26T12:45:25.460069Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Sending command GET (0) to 10.10.10.1:7002
+[2m2026-02-26T12:45:25.460090Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 10.10.10.1:7002
+[2m2026-02-26T12:45:25.460129Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Encoded 23 bytes to 10.10.10.1:7002. Buffer len: 23 (RESP2)
+[2m2026-02-26T12:45:25.460217Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-P91Jj28s6O: Sent command to 10.10.10.1:7002. Flushed: true
+[2m2026-02-26T12:45:26.783193Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:26.783259Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:26.783193Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:26.783193Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:26.783298Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:26.783304Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:28.785686Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:28.785744Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:28.785686Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:28.785686Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:28.785780Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:28.785786Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:28.785810Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Server 10.10.10.1:7002 unresponsive after 3325 ms
+[2m2026-02-26T12:45:28.785877Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-2][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:45:28.785930Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:45:30.787879Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:30.787890Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:30.787919Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:30.787879Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:30.787936Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:30.787940Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Server 10.10.10.1:7002 unresponsive after 5327 ms
+[2m2026-02-26T12:45:30.787948Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:30.787978Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-2][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:45:30.788016Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:45:32.789466Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:32.789466Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:32.789512Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:32.789554Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:32.789526Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:32.789591Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:32.789590Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Server 10.10.10.1:7002 unresponsive after 7329 ms
+[2m2026-02-26T12:45:32.789704Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Interrupting reader task for 10.10.10.1:7002
+[2m2026-02-26T12:45:32.789760Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[EVENT][client-2][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:45:34.792073Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:34.792066Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:34.792066Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:34.792133Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:34.792172Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:34.792200Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:34.792241Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Server 10.10.10.1:7002 unresponsive after 9332 ms
+[2m2026-02-26T12:45:34.792298Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-2][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:45:34.792371Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:45:36.794536Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:36.794537Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:36.794595Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:36.794614Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:36.794609Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:36.794652Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:36.794626Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Server 10.10.10.1:7002 unresponsive after 11334 ms
+[2m2026-02-26T12:45:36.794724Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Interrupting reader task for 10.10.10.1:7002
+[EVENT][client-2][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:45:36.794787Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-26T12:45:38.796976Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:38.797025Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:38.796986Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:38.796976Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:38.797052Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Server 10.10.10.1:7002 unresponsive after 13336 ms
+[2m2026-02-26T12:45:38.797056Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:38.797059Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:38.797107Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Interrupting reader task for 10.10.10.1:7002
+[2m2026-02-26T12:45:38.797144Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-P91Jj28s6O: Recv interrupt on 10.10.10.1:7002 - ignoring, continuing to wait for frame
+[EVENT][client-2][unresponsive] node 10.10.10.1:7002 went unresponsive
+[2m2026-02-26T12:45:40.463530Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 23 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:45:40.463588Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Parsed 23 bytes from 10.10.10.1:7002
+[2m2026-02-26T12:45:40.463627Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Parsing response frame from 10.10.10.1:7002
+[2m2026-02-26T12:45:40.463644Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Checking response to GET (0)
+[2m2026-02-26T12:45:40.463658Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-P91Jj28s6O: Handling clustered response kind: Respond
+[2m2026-02-26T12:45:40.463672Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-P91Jj28s6O: Respond to caller from 10.10.10.1:7002 for GET with BlobString
+[2m2026-02-26T12:45:40.463709Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-P91Jj28s6O: Recv 0 bytes from 10.10.10.1:7002 (RESP2).
+[2m2026-02-26T12:45:40.798978Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:40.798978Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:40.799030Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:40.798992Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:40.799047Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:40.799094Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:42.800346Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:42.800346Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:42.800392Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:42.800346Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:42.800411Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:42.800451Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:44.803001Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:44.803049Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:44.803001Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:44.803020Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:44.803100Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:44.803111Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:46.803987Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:46.804007Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:46.804026Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:46.804078Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:46.805152Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:46.805172Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:48.806253Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:48.806253Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:48.806319Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:48.806355Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:48.806355Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:48.806412Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:50.808683Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:50.808683Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:50.808736Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:50.808683Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:50.808754Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:50.808803Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:52.810870Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:52.810879Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:52.810889Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:52.810908Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:52.810916Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:52.810917Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:54.812377Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:54.812377Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:54.812423Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:54.812377Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:54.812466Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:54.812455Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:56.814311Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:56.814343Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:56.814400Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:56.814408Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:56.814408Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:56.814434Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:45:58.816645Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:45:58.816669Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:45:58.816632Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:45:58.816632Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:45:58.816716Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:45:58.816717Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:00.818417Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:46:00.818455Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:00.818469Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:46:00.818467Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:46:00.818484Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:46:00.818494Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:46:02.820679Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:46:02.820708Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:46:02.820716Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:46:02.820721Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:02.820745Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:46:02.820752Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:46:04.823044Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:46:04.823044Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:46:04.823088Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:46:04.823104Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:46:04.823099Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:46:04.823135Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:06.824087Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:46:06.824134Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:46:06.824322Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:46:06.824384Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:06.824385Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:46:06.824406Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:46:08.826697Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:46:08.826695Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:46:08.826743Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:08.826695Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:46:08.826753Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:46:08.826809Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:46:10.828926Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:46:10.828980Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:46:10.828926Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:46:10.828926Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:46:10.829013Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:10.829020Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:46:12.830423Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:46:12.830423Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:46:12.830423Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:46:12.830471Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:46:12.830498Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:46:12.830517Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:14.831972Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:46:14.832001Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:46:14.831972Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:46:14.831983Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:46:14.832035Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:14.832069Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:46:16.833430Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:46:16.833479Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s
+[2m2026-02-26T12:46:16.833449Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:46:16.833444Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:46:16.833510Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:16.833513Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:46:18.835722Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Checking unresponsive connections...
+[2m2026-02-26T12:46:18.835722Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Checking unresponsive connections...
+[2m2026-02-26T12:46:18.835759Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-ukgGpDKzOo: Using network timeout: 2s
+[2m2026-02-26T12:46:18.835776Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-P91Jj28s6O: Using network timeout: 2s
+[2m2026-02-26T12:46:18.835748Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Checking unresponsive connections...
+[2m2026-02-26T12:46:18.835803Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-R9gLspcYlF: Using network timeout: 2s

@@ -1,9 +1,14 @@
 version: "3.8"
 
 # CLUSTER_ANNOUNCE_IP controls what IP Redis nodes advertise in CLUSTER SLOTS.
-# This must be reachable by the fred client:
-#   Inside Claude / CI:  CLUSTER_ANNOUNCE_IP=192.168.215.1 (docker bridge gateway, default)
-#   From local Mac:      CLUSTER_ANNOUNCE_IP=127.0.0.1 docker compose up -d
+# The network subnet is pinned to 10.10.10.0/24 so the gateway is always
+# 10.10.10.1 — stable across compose restarts.
+#
+# Usage:
+#   CLUSTER_ANNOUNCE_IP=10.10.10.1 docker compose up -d
+#   docker exec redis-cluster-1 redis-cli --cluster create \
+#     10.10.10.1:7001 10.10.10.1:7002 10.10.10.1:7003 \
+#     --cluster-replicas 0 --cluster-yes
 
 services:
   redis-cluster-1:
@@ -17,8 +22,8 @@ services:
       --port 7001
       --cluster-enabled yes
       --cluster-config-file nodes.conf
-      --cluster-node-timeout 5000
-      --cluster-announce-ip ${CLUSTER_ANNOUNCE_IP:-192.168.215.1}
+      --cluster-node-timeout 60000
+      --cluster-announce-ip ${CLUSTER_ANNOUNCE_IP:-10.10.10.1}
       --cluster-announce-port 7001
       --cluster-announce-bus-port 17001
       --appendonly no
@@ -38,8 +43,8 @@ services:
       --port 7002
       --cluster-enabled yes
       --cluster-config-file nodes.conf
-      --cluster-node-timeout 5000
-      --cluster-announce-ip ${CLUSTER_ANNOUNCE_IP:-192.168.215.1}
+      --cluster-node-timeout 60000
+      --cluster-announce-ip ${CLUSTER_ANNOUNCE_IP:-10.10.10.1}
       --cluster-announce-port 7002
       --cluster-announce-bus-port 17002
       --appendonly no
@@ -57,10 +62,17 @@ services:
       --port 7003
       --cluster-enabled yes
       --cluster-config-file nodes.conf
-      --cluster-node-timeout 5000
-      --cluster-announce-ip ${CLUSTER_ANNOUNCE_IP:-192.168.215.1}
+      --cluster-node-timeout 60000
+      --cluster-announce-ip ${CLUSTER_ANNOUNCE_IP:-10.10.10.1}
       --cluster-announce-port 7003
       --cluster-announce-bus-port 17003
       --appendonly no
       --save ""
       --loglevel notice
+
+networks:
+  default:
+    ipam:
+      config:
+        - subnet: 10.10.10.0/24
+          gateway: 10.10.10.1

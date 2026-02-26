@@ -1,0 +1,97 @@
+=== Cluster pool + HTTP server debug harness ===
+  pool size: 3
+  node1 10.10.10.1:7001 → key 'alpha'  (slot 865)
+  node2 10.10.10.1:7002 → key 'key1'   (slot 9189)  ← will be paused
+  node3 10.10.10.1:7003 → key 'beta'   (slot 15419)
+  HTTP server: http://0.0.0.0:8181
+
+[2m2026-02-26T13:16:58.804558Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-gEL8j0pozz: Checking unresponsive connections...
+[2m2026-02-26T13:16:58.804561Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-HegaegVOhg: Checking unresponsive connections...
+[2m2026-02-26T13:16:58.804670Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-gEL8j0pozz: Using network timeout: 2s
+[2m2026-02-26T13:16:58.804591Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-bKbFQjiu5C: Checking unresponsive connections...
+[2m2026-02-26T13:16:58.804711Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-bKbFQjiu5C: Using network timeout: 2s
+[2m2026-02-26T13:16:58.804677Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-HegaegVOhg: Using network timeout: 2s
+[2m2026-02-26T13:16:58.805009Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-HegaegVOhg: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 5, delay: 5, jitter: 100 })
+[2m2026-02-26T13:16:58.805020Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-bKbFQjiu5C: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 5, delay: 5, jitter: 100 })
+[2m2026-02-26T13:16:58.805062Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-gEL8j0pozz: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 5, delay: 5, jitter: 100 })
+[2m2026-02-26T13:16:58.805064Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-bKbFQjiu5C: Syncing connection state with unresponsive network task.
+[2m2026-02-26T13:16:58.805076Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-gEL8j0pozz: Syncing connection state with unresponsive network task.
+[2m2026-02-26T13:16:58.805089Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-gEL8j0pozz: Adding 0 commands to retry buffer.
+[2m2026-02-26T13:16:58.805117Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-HegaegVOhg: Syncing connection state with unresponsive network task.
+[2m2026-02-26T13:16:58.805135Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-HegaegVOhg: Adding 0 commands to retry buffer.
+[2m2026-02-26T13:16:58.805149Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-bKbFQjiu5C: Adding 0 commands to retry buffer.
+[2m2026-02-26T13:16:58.805180Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-gEL8j0pozz: Synchronizing cluster state.
+[2m2026-02-26T13:16:58.805182Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-bKbFQjiu5C: Synchronizing cluster state.
+[2m2026-02-26T13:16:58.805185Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-HegaegVOhg: Synchronizing cluster state.
+[2m2026-02-26T13:16:58.805279Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-bKbFQjiu5C: Attempting clustered connections to any of {Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }}
+[2m2026-02-26T13:16:58.805292Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-gEL8j0pozz: Attempting clustered connections to any of {Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }}
+[2m2026-02-26T13:16:58.805279Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-HegaegVOhg: Attempting clustered connections to any of {Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }}
+[2m2026-02-26T13:16:58.805341Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T13:16:58.805352Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T13:16:58.805351Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T13:16:58.805368Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T13:16:58.805399Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T13:16:58.805413Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T13:16:58.805489Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-HegaegVOhg: Found 1 addresses for 10.10.10.1:7001
+[2m2026-02-26T13:16:58.805491Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-bKbFQjiu5C: Found 1 addresses for 10.10.10.1:7001
+[2m2026-02-26T13:16:58.805501Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-gEL8j0pozz: Found 1 addresses for 10.10.10.1:7001
+[2m2026-02-26T13:16:58.805559Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T13:16:58.805561Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T13:16:58.805579Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T13:16:58.807881Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Error connecting to 10.10.10.1:7001: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.807906Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Failed to connect to any of [10.10.10.1:7001].
+[2m2026-02-26T13:16:58.807965Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T13:16:58.807980Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T13:16:58.808069Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-HegaegVOhg: Found 1 addresses for 10.10.10.1:7002
+[2m2026-02-26T13:16:58.808105Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7002
+[2m2026-02-26T13:16:58.808362Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Error connecting to 10.10.10.1:7001: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.808379Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Failed to connect to any of [10.10.10.1:7001].
+[2m2026-02-26T13:16:58.808392Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T13:16:58.808400Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T13:16:58.808451Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-gEL8j0pozz: Found 1 addresses for 10.10.10.1:7002
+[2m2026-02-26T13:16:58.808506Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7002
+[2m2026-02-26T13:16:58.808991Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Error connecting to 10.10.10.1:7001: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.809006Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Failed to connect to any of [10.10.10.1:7001].
+[2m2026-02-26T13:16:58.809022Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T13:16:58.809033Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T13:16:58.809068Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-bKbFQjiu5C: Found 1 addresses for 10.10.10.1:7002
+[2m2026-02-26T13:16:58.809100Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7002
+[2m2026-02-26T13:16:58.810480Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Error connecting to 10.10.10.1:7002: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.810498Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Failed to connect to any of [10.10.10.1:7002].
+[2m2026-02-26T13:16:58.810515Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T13:16:58.810525Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T13:16:58.810571Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-HegaegVOhg: Found 1 addresses for 10.10.10.1:7003
+[2m2026-02-26T13:16:58.810620Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7003
+[2m2026-02-26T13:16:58.812763Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Error connecting to 10.10.10.1:7002: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.812782Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Failed to connect to any of [10.10.10.1:7002].
+[2m2026-02-26T13:16:58.812805Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T13:16:58.812816Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T13:16:58.812865Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-gEL8j0pozz: Found 1 addresses for 10.10.10.1:7003
+[2m2026-02-26T13:16:58.812909Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7003
+[2m2026-02-26T13:16:58.813075Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Error connecting to 10.10.10.1:7002: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.813094Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Failed to connect to any of [10.10.10.1:7002].
+[2m2026-02-26T13:16:58.813112Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T13:16:58.813123Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T13:16:58.813161Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-bKbFQjiu5C: Found 1 addresses for 10.10.10.1:7003
+[2m2026-02-26T13:16:58.813201Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7003
+[2m2026-02-26T13:16:58.817152Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Error connecting to 10.10.10.1:7003: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.817176Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-HegaegVOhg: Failed to connect to any of [10.10.10.1:7003].
+[2m2026-02-26T13:16:58.817171Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Error connecting to 10.10.10.1:7003: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.817212Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-HegaegVOhg: Syncing connection state with unresponsive network task.
+[2m2026-02-26T13:16:58.817212Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-gEL8j0pozz: Failed to connect to any of [10.10.10.1:7003].
+[2m2026-02-26T13:16:58.817265Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-HegaegVOhg: Ending connection task with Err(Redis Error - kind: IO, details: Os { code: 65, kind: HostUnreachable, message: "No route to host" })
+[2m2026-02-26T13:16:58.817290Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-gEL8j0pozz: Syncing connection state with unresponsive network task.
+[2m2026-02-26T13:16:58.817320Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-gEL8j0pozz: Ending connection task with Err(Redis Error - kind: IO, details: Os { code: 65, kind: HostUnreachable, message: "No route to host" })
+[EVENT][client-2][error] IO Error: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[EVENT][client-0][error] IO Error: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.817364Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Error connecting to 10.10.10.1:7003: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.817373Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-bKbFQjiu5C: Failed to connect to any of [10.10.10.1:7003].
+[2m2026-02-26T13:16:58.817386Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-bKbFQjiu5C: Syncing connection state with unresponsive network task.
+[2m2026-02-26T13:16:58.817396Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-bKbFQjiu5C: No `on_connect` listeners.
+[2m2026-02-26T13:16:58.817407Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-bKbFQjiu5C: Ending connection task with Err(Redis Error - kind: IO, details: Os { code: 65, kind: HostUnreachable, message: "No route to host" })
+[2m2026-02-26T13:16:58.817415Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-bKbFQjiu5C: No `on_connect` listeners.
+[EVENT][client-1][error] IO Error: Os { code: 65, kind: HostUnreachable, message: "No route to host" }
+[2m2026-02-26T13:16:58.817438Z[0m [35mTRACE[0m [2mfred::modules::inner[0m[2m:[0m fred-HegaegVOhg: Ending network timeout task.
+[2m2026-02-26T13:16:58.817467Z[0m [35mTRACE[0m [2mfred::modules::inner[0m[2m:[0m fred-bKbFQjiu5C: Ending network timeout task.
+[2m2026-02-26T13:16:58.817512Z[0m [35mTRACE[0m [2mfred::modules::inner[0m[2m:[0m fred-gEL8j0pozz: Ending network timeout task.
+Error: Redis Error - kind: IO, details: Os { code: 65, kind: HostUnreachable, message: "No route to host" }

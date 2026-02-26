@@ -1,0 +1,179 @@
+=== Cluster pool + HTTP server debug harness ===
+  pool size: 3
+  node1 10.10.10.1:7001 → key 'alpha'  (slot 865)
+  node2 10.10.10.1:7002 → key 'key1'   (slot 9189)  ← will be paused
+  node3 10.10.10.1:7003 → key 'beta'   (slot 15419)
+  HTTP server: http://0.0.0.0:8181
+
+[2m2026-02-26T12:22:19.120086Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:19.120098Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:19.120101Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:19.120339Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-lKHecclxqf: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 1000, delay: 3000, jitter: 100 })
+[2m2026-02-26T12:22:19.120337Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-O3ywkNuivX: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 1000, delay: 3000, jitter: 100 })
+[2m2026-02-26T12:22:19.120354Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-GCHJB27k59: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 1000, delay: 3000, jitter: 100 })
+[2m2026-02-26T12:22:19.120382Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Syncing connection state with unresponsive network task.
+[2m2026-02-26T12:22:19.120392Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Syncing connection state with unresponsive network task.
+[2m2026-02-26T12:22:19.120417Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Syncing connection state with unresponsive network task.
+[2m2026-02-26T12:22:19.120425Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-lKHecclxqf: Synchronizing cluster state.
+[2m2026-02-26T12:22:19.120437Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Synchronizing cluster state.
+[2m2026-02-26T12:22:19.120434Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-GCHJB27k59: Synchronizing cluster state.
+[2m2026-02-26T12:22:19.120497Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-lKHecclxqf: Attempting clustered connections to any of {Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }}
+[2m2026-02-26T12:22:19.120551Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Attempting clustered connections to any of {Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }}
+[2m2026-02-26T12:22:19.120551Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-GCHJB27k59: Attempting clustered connections to any of {Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }}
+[2m2026-02-26T12:22:19.120674Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:22:19.120698Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:22:19.120707Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:22:19.124649Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Skip setting client name.
+[2m2026-02-26T12:22:19.124899Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Skip setting client name.
+[2m2026-02-26T12:22:19.124941Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Skip setting client name.
+[2m2026-02-26T12:22:19.128066Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Read client ID: Ok(Number { data: 19, attributes: None })
+[2m2026-02-26T12:22:19.128155Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Read client ID: Ok(Number { data: 17, attributes: None })
+[2m2026-02-26T12:22:19.128180Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Read client ID: Ok(Number { data: 18, attributes: None })
+[2m2026-02-26T12:22:19.128961Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.129052Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.129104Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.130402Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-GCHJB27k59: Connected to 10.10.10.1:7001 (1/3)
+[2m2026-02-26T12:22:19.130549Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-lKHecclxqf: Connected to 10.10.10.1:7001 (1/3)
+[2m2026-02-26T12:22:19.130600Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Connected to 10.10.10.1:7001 (1/3)
+[2m2026-02-26T12:22:19.131043Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-GCHJB27k59: Rebuilding cluster state from host: 10.10.10.1
+[2m2026-02-26T12:22:19.131099Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-GCHJB27k59: Changing cluster connections: ClusterChange { add: [Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }], remove: [] }
+[2m2026-02-26T12:22:19.131141Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-GCHJB27k59: No `on_cluster_change` listeners.
+[2m2026-02-26T12:22:19.131236Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-GCHJB27k59: Connecting to cluster node 10.10.10.1:7001
+[2m2026-02-26T12:22:19.131300Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-GCHJB27k59: Connecting to cluster node 10.10.10.1:7002
+[2m2026-02-26T12:22:19.131349Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-GCHJB27k59: Connecting to cluster node 10.10.10.1:7003
+[2m2026-02-26T12:22:19.131403Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:22:19.131515Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Rebuilding cluster state from host: 10.10.10.1
+[2m2026-02-26T12:22:19.131530Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-lKHecclxqf: Rebuilding cluster state from host: 10.10.10.1
+[2m2026-02-26T12:22:19.131548Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Changing cluster connections: ClusterChange { add: [Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }], remove: [] }
+[2m2026-02-26T12:22:19.131563Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-O3ywkNuivX: No `on_cluster_change` listeners.
+[2m2026-02-26T12:22:19.131568Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7002
+[2m2026-02-26T12:22:19.131585Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Connecting to cluster node 10.10.10.1:7001
+[2m2026-02-26T12:22:19.131599Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-lKHecclxqf: Changing cluster connections: ClusterChange { add: [Server { host: "10.10.10.1", port: 7001 }, Server { host: "10.10.10.1", port: 7002 }, Server { host: "10.10.10.1", port: 7003 }], remove: [] }
+[2m2026-02-26T12:22:19.131616Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Connecting to cluster node 10.10.10.1:7002
+[2m2026-02-26T12:22:19.131632Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-lKHecclxqf: No `on_cluster_change` listeners.
+[2m2026-02-26T12:22:19.131637Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Connecting to cluster node 10.10.10.1:7003
+[2m2026-02-26T12:22:19.131671Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:22:19.131671Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-lKHecclxqf: Connecting to cluster node 10.10.10.1:7001
+[2m2026-02-26T12:22:19.131668Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7003
+[2m2026-02-26T12:22:19.131727Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-lKHecclxqf: Connecting to cluster node 10.10.10.1:7002
+[2m2026-02-26T12:22:19.131767Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-lKHecclxqf: Connecting to cluster node 10.10.10.1:7003
+[2m2026-02-26T12:22:19.131821Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7001
+[2m2026-02-26T12:22:19.131851Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7002
+[2m2026-02-26T12:22:19.131980Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7002
+[2m2026-02-26T12:22:19.131999Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7003
+[2m2026-02-26T12:22:19.132084Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Creating TCP connection to 10.10.10.1 at 10.10.10.1:7003
+[2m2026-02-26T12:22:19.132174Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Skip setting client name.
+[2m2026-02-26T12:22:19.132412Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Skip setting client name.
+[2m2026-02-26T12:22:19.132623Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Skip setting client name.
+[2m2026-02-26T12:22:19.132795Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Skip setting client name.
+[2m2026-02-26T12:22:19.132940Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Skip setting client name.
+[2m2026-02-26T12:22:19.133215Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Skip setting client name.
+[2m2026-02-26T12:22:19.133368Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Skip setting client name.
+[2m2026-02-26T12:22:19.133470Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Skip setting client name.
+[2m2026-02-26T12:22:19.133521Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Skip setting client name.
+[2m2026-02-26T12:22:19.134894Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Read client ID: Ok(Number { data: 8, attributes: None })
+[2m2026-02-26T12:22:19.134949Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Read client ID: Ok(Number { data: 8, attributes: None })
+[2m2026-02-26T12:22:19.135018Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Read client ID: Ok(Number { data: 21, attributes: None })
+[2m2026-02-26T12:22:19.135029Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Read client ID: Ok(Number { data: 22, attributes: None })
+[2m2026-02-26T12:22:19.135004Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Read client ID: Ok(Number { data: 20, attributes: None })
+[2m2026-02-26T12:22:19.135057Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Read client ID: Ok(Number { data: 9, attributes: None })
+[2m2026-02-26T12:22:19.135060Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Read client ID: Ok(Number { data: 10, attributes: None })
+[2m2026-02-26T12:22:19.135085Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Read client ID: Ok(Number { data: 9, attributes: None })
+[2m2026-02-26T12:22:19.135086Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Read client ID: Ok(Number { data: 10, attributes: None })
+[2m2026-02-26T12:22:19.137039Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.137147Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.137184Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.137205Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.137215Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.137247Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-GCHJB27k59: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.137257Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-lKHecclxqf: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.137279Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T12:22:19.137331Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-O3ywkNuivX: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[EVENT][client-0][reconnect] reconnected to 10.10.10.1:7002
+[2m2026-02-26T12:22:19.139232Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Subscribe to interrupts for 10.10.10.1:7002
+[EVENT][client-2][reconnect] reconnected to 10.10.10.1:7001
+[EVENT][client-0][reconnect] reconnected to 10.10.10.1:7001
+[2m2026-02-26T12:22:19.139382Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Subscribe to interrupts for 10.10.10.1:7001
+[2m2026-02-26T12:22:19.139382Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Subscribe to interrupts for 10.10.10.1:7001
+[EVENT][client-2][reconnect] reconnected to 10.10.10.1:7002
+[EVENT][client-1][reconnect] reconnected to 10.10.10.1:7001
+[EVENT][client-1][reconnect] reconnected to 10.10.10.1:7002
+[2m2026-02-26T12:22:19.139514Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Subscribe to interrupts for 10.10.10.1:7002
+[2m2026-02-26T12:22:19.139520Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Subscribe to interrupts for 10.10.10.1:7001
+[2m2026-02-26T12:22:19.139520Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Subscribe to interrupts for 10.10.10.1:7002
+[2m2026-02-26T12:22:19.139653Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-GCHJB27k59: Finish synchronizing cluster connections.
+[2m2026-02-26T12:22:19.139661Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Subscribe to interrupts for 10.10.10.1:7003
+[2m2026-02-26T12:22:19.139693Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Subscribe to interrupts for 10.10.10.1:7003
+[2m2026-02-26T12:22:19.139700Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Syncing connection state with unresponsive network task.
+[2m2026-02-26T12:22:19.139691Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-lKHecclxqf: Finish synchronizing cluster connections.
+[2m2026-02-26T12:22:19.139749Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Syncing connection state with unresponsive network task.
+[2m2026-02-26T12:22:19.139762Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-GCHJB27k59: Starting command processing stream...
+[EVENT][client-0][reconnect] reconnected to 10.10.10.1:7003
+[2m2026-02-26T12:22:19.139785Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Finish synchronizing cluster connections.
+[2m2026-02-26T12:22:19.139785Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-lKHecclxqf: Starting command processing stream...
+[2m2026-02-26T12:22:19.139792Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Subscribe to interrupts for 10.10.10.1:7003
+[EVENT][client-2][reconnect] reconnected to 10.10.10.1:7003
+[2m2026-02-26T12:22:19.139810Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Syncing connection state with unresponsive network task.
+[2m2026-02-26T12:22:19.139829Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-O3ywkNuivX: Starting command processing stream...
+[OK] Pool connected (3 clients, 3 connections per node).
+[EVENT][client-1][reconnect] reconnected to 10.10.10.1:7003
+[2m2026-02-26T12:22:19.140116Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Writing command `SET` to 10.10.10.1:7001
+[2m2026-02-26T12:22:19.140724Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Writing command `SET` to 10.10.10.1:7002
+[2m2026-02-26T12:22:19.141293Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Writing command `SET` to 10.10.10.1:7003
+[OK] SET alpha→node1, key1→node2, beta→node3
+[2m2026-02-26T12:22:19.141778Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-lKHecclxqf: Writing command `GET` to 10.10.10.1:7001
+[2m2026-02-26T12:22:19.142237Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-GCHJB27k59: Writing command `GET` to 10.10.10.1:7002
+[2m2026-02-26T12:22:19.142698Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-O3ywkNuivX: Writing command `GET` to 10.10.10.1:7003
+[OK] Pre-pause reads: alpha=Some("value-from-node1") key1=Some("value-from-node2") beta=Some("value-from-node3")
+
+[OK] HTTP server listening on http://0.0.0.0:8181
+
+  ── Read / Write ───────────────────────────────────────────────
+  curl http://localhost:8181/get/alpha
+  curl http://localhost:8181/get/key1
+  curl http://localhost:8181/get/beta
+  curl http://localhost:8181/set/mykey/myval
+
+  ── tc netem control (docker exec redis-cluster-2) ─────────────
+  curl -X POST   'http://localhost:8181/pause?ms=15000'  # inject 15s delay
+  curl -X POST   'http://localhost:8181/pause?ms=3000'   # inject 3s delay
+  curl -X DELETE  http://localhost:8181/pause             # remove delay
+
+  ── Status ─────────────────────────────────────────────────────
+  curl http://localhost:8181/status
+
+  Press Ctrl+C to exit.
+
+[2m2026-02-26T12:22:21.122960Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:21.122985Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:21.122978Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:23.125040Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:23.125051Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:23.125040Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:25.127254Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:25.127261Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:25.127254Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:27.128514Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:27.128514Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:27.128527Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:29.130070Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:29.130070Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:29.130070Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:31.132312Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:31.132342Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:31.132326Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:33.133716Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:33.133716Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:33.133716Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:35.135991Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:35.135983Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:35.135992Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:37.138367Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:37.138415Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:37.138417Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:39.139694Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:39.139694Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...
+[2m2026-02-26T12:22:39.139694Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:41.142031Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-O3ywkNuivX: Checking unresponsive connections...
+[2m2026-02-26T12:22:41.142036Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-lKHecclxqf: Checking unresponsive connections...
+[2m2026-02-26T12:22:41.142048Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-GCHJB27k59: Checking unresponsive connections...

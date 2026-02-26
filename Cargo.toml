@@ -15,6 +15,10 @@ path = "src/correct.rs"
 name = "cluster"
 path = "src/cluster.rs"
 
+[[bin]]
+name = "cluster_server"
+path = "src/cluster_server.rs"
+
 [dependencies]
 fred = { path = "../fred.rs", features = ["check-unresponsive"] }
 tokio = { version = "1", features = ["full"] }
@@ -22,3 +26,6 @@ env_logger = "0.11"
 log = "0.4"
 console-subscriber = "0.4"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "fmt"] }
+axum = "0.7"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"

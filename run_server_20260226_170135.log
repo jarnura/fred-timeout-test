@@ -1,0 +1,336 @@
+=== Cluster pool + HTTP server debug harness ===
+  pool size: 3
+  node1 192.168.247.1:7001 → key 'alpha'  (slot 865)
+  node2 192.168.247.1:7002 → key 'key1'   (slot 9189)  ← will be paused
+  node3 192.168.247.1:7003 → key 'beta'   (slot 15419)
+  HTTP server: http://0.0.0.0:8181
+
+[2m2026-02-26T11:31:36.641241Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-2qrotu7OED: Checking unresponsive connections...
+[2m2026-02-26T11:31:36.641241Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-p63bWeWfgn: Checking unresponsive connections...
+[2m2026-02-26T11:31:36.641240Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-w4XbWxfbBC: Checking unresponsive connections...
+[2m2026-02-26T11:31:36.641472Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-2qrotu7OED: Using network timeout: 2s
+[2m2026-02-26T11:31:36.641508Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-p63bWeWfgn: Using network timeout: 2s
+[2m2026-02-26T11:31:36.641519Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-w4XbWxfbBC: Using network timeout: 2s
+[2m2026-02-26T11:31:36.641681Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-p63bWeWfgn: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 1000, delay: 3000, jitter: 100 })
+[2m2026-02-26T11:31:36.641712Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-w4XbWxfbBC: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 1000, delay: 3000, jitter: 100 })
+[2m2026-02-26T11:31:36.641726Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-p63bWeWfgn: Syncing connection state with unresponsive network task.
+[2m2026-02-26T11:31:36.641732Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-w4XbWxfbBC: Syncing connection state with unresponsive network task.
+[2m2026-02-26T11:31:36.641741Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-p63bWeWfgn: Adding 0 commands to retry buffer.
+[2m2026-02-26T11:31:36.641741Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-2qrotu7OED: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 1000, delay: 3000, jitter: 100 })
+[2m2026-02-26T11:31:36.641760Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-2qrotu7OED: Syncing connection state with unresponsive network task.
+[2m2026-02-26T11:31:36.641774Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-2qrotu7OED: Adding 0 commands to retry buffer.
+[2m2026-02-26T11:31:36.641778Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-p63bWeWfgn: Synchronizing cluster state.
+[2m2026-02-26T11:31:36.641785Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-2qrotu7OED: Synchronizing cluster state.
+[2m2026-02-26T11:31:36.641802Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-w4XbWxfbBC: Adding 0 commands to retry buffer.
+[2m2026-02-26T11:31:36.641818Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-w4XbWxfbBC: Synchronizing cluster state.
+[2m2026-02-26T11:31:36.641853Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-p63bWeWfgn: Attempting clustered connections to any of {Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }}
+[2m2026-02-26T11:31:36.641854Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-w4XbWxfbBC: Attempting clustered connections to any of {Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }}
+[2m2026-02-26T11:31:36.641859Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-2qrotu7OED: Attempting clustered connections to any of {Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }}
+[2m2026-02-26T11:31:36.641897Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.641899Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.641902Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.641909Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.641913Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.641913Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.642020Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-p63bWeWfgn: Found 1 addresses for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.642022Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-2qrotu7OED: Found 1 addresses for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.642025Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-w4XbWxfbBC: Found 1 addresses for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.642087Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2m2026-02-26T11:31:36.642088Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2m2026-02-26T11:31:36.642089Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2m2026-02-26T11:31:36.647418Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.647464Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.647475Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Skip setting client name.
+[2m2026-02-26T11:31:36.647556Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.647643Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.647649Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.647656Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Skip setting client name.
+[2m2026-02-26T11:31:36.647664Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.647669Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.647673Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.647680Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Skip setting client name.
+[2m2026-02-26T11:31:36.647698Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.649828Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.649853Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.649885Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Read client ID: Ok(Number { data: 52, attributes: None })
+[2m2026-02-26T11:31:36.649918Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.649941Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.649976Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.649985Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.649991Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.650001Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.650033Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Read client ID: Ok(Number { data: 50, attributes: None })
+[2m2026-02-26T11:31:36.649993Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Read client ID: Ok(Number { data: 51, attributes: None })
+[2m2026-02-26T11:31:36.650069Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.650084Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.650107Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.650123Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.651085Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 648 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.651114Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 648 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.651183Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.651233Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Checking cluster info for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.651251Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.651273Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.651409Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 648 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.651418Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 648 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.651430Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.651437Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Checking cluster info for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.651448Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.651463Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.651472Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 648 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.651482Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 648 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.651514Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.651523Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Checking cluster info for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.651536Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.651550Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.652102Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 606 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.652114Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 606 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.652150Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-w4XbWxfbBC: Connected to 192.168.247.1:7001 (1/3)
+[2m2026-02-26T11:31:36.652166Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.652179Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 28 bytes to 192.168.247.1:7001. Buffer len: 28 (RESP2)
+[2m2026-02-26T11:31:36.652215Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.652241Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 606 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.652249Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 606 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.652260Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-2qrotu7OED: Connected to 192.168.247.1:7001 (1/3)
+[2m2026-02-26T11:31:36.652268Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.652277Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 28 bytes to 192.168.247.1:7001. Buffer len: 28 (RESP2)
+[2m2026-02-26T11:31:36.652294Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.652516Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 606 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.652528Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 606 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.652543Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-p63bWeWfgn: Connected to 192.168.247.1:7001 (1/3)
+[2m2026-02-26T11:31:36.652552Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.652562Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 28 bytes to 192.168.247.1:7001. Buffer len: 28 (RESP2)
+[2m2026-02-26T11:31:36.652584Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.653211Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 304 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.653240Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 304 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.653281Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-p63bWeWfgn: Recv CLUSTER SLOTS response: Array([Array([Integer(0), Integer(5460), Array([String("192.168.247.1"), Integer(7001), String("f39ff8fdb4a703de8b5d774a1c97875d4eb9fbf3"), Array([])])]), Array([Integer(5461), Integer(10922), Array([String("192.168.247.1"), Integer(7002), String("e1978f792d552b7367571037c2f3b51240331f47"), Array([])])]), Array([Integer(10923), Integer(16383), Array([String("192.168.247.1"), Integer(7003), String("40ad3e257d4108ecef998073707154513b03c156"), Array([])])])])
+[2m2026-02-26T11:31:36.653299Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-p63bWeWfgn: Rebuilding cluster state from host: 192.168.247.1
+[2m2026-02-26T11:31:36.653325Z[0m [35mTRACE[0m [2mfred::protocol::cluster[0m[2m:[0m fred-p63bWeWfgn: Skip modifying TLS hostnames.
+[2m2026-02-26T11:31:36.653353Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-p63bWeWfgn: Changing cluster connections: ClusterChange { add: [Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }], remove: [] }
+[2m2026-02-26T11:31:36.653388Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-p63bWeWfgn: No `on_cluster_change` listeners.
+[2m2026-02-26T11:31:36.653410Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-p63bWeWfgn: Connecting to cluster node 192.168.247.1:7001
+[2m2026-02-26T11:31:36.653418Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.653426Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.653457Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-p63bWeWfgn: Connecting to cluster node 192.168.247.1:7002
+[2m2026-02-26T11:31:36.653466Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.653473Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.653489Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-p63bWeWfgn: Connecting to cluster node 192.168.247.1:7003
+[2m2026-02-26T11:31:36.653496Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.653498Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-p63bWeWfgn: Found 1 addresses for 192.168.247.1:7002
+[2m2026-02-26T11:31:36.653502Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.653537Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 304 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.653533Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-p63bWeWfgn: Found 1 addresses for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.653566Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 304 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.653598Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-p63bWeWfgn: Found 1 addresses for 192.168.247.1:7003
+[2m2026-02-26T11:31:36.653591Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-w4XbWxfbBC: Recv CLUSTER SLOTS response: Array([Array([Integer(0), Integer(5460), Array([String("192.168.247.1"), Integer(7001), String("f39ff8fdb4a703de8b5d774a1c97875d4eb9fbf3"), Array([])])]), Array([Integer(5461), Integer(10922), Array([String("192.168.247.1"), Integer(7002), String("e1978f792d552b7367571037c2f3b51240331f47"), Array([])])]), Array([Integer(10923), Integer(16383), Array([String("192.168.247.1"), Integer(7003), String("40ad3e257d4108ecef998073707154513b03c156"), Array([])])])])
+[2m2026-02-26T11:31:36.653609Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-w4XbWxfbBC: Rebuilding cluster state from host: 192.168.247.1
+[2m2026-02-26T11:31:36.653624Z[0m [35mTRACE[0m [2mfred::protocol::cluster[0m[2m:[0m fred-w4XbWxfbBC: Skip modifying TLS hostnames.
+[2m2026-02-26T11:31:36.653635Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2m2026-02-26T11:31:36.653638Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-w4XbWxfbBC: Changing cluster connections: ClusterChange { add: [Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }], remove: [] }
+[2m2026-02-26T11:31:36.653650Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-w4XbWxfbBC: No `on_cluster_change` listeners.
+[2m2026-02-26T11:31:36.653664Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-w4XbWxfbBC: Connecting to cluster node 192.168.247.1:7001
+[2m2026-02-26T11:31:36.653671Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.653678Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.653659Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 304 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.653695Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-w4XbWxfbBC: Connecting to cluster node 192.168.247.1:7002
+[2m2026-02-26T11:31:36.653703Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.653735Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.653738Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-w4XbWxfbBC: Found 1 addresses for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.653771Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-w4XbWxfbBC: Found 1 addresses for 192.168.247.1:7002
+[2m2026-02-26T11:31:36.653788Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-w4XbWxfbBC: Connecting to cluster node 192.168.247.1:7003
+[2m2026-02-26T11:31:36.653796Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.653804Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.653818Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 304 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.653832Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-w4XbWxfbBC: Found 1 addresses for 192.168.247.1:7003
+[2m2026-02-26T11:31:36.653856Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7002
+[2m2026-02-26T11:31:36.653833Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2m2026-02-26T11:31:36.653885Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-2qrotu7OED: Recv CLUSTER SLOTS response: Array([Array([Integer(0), Integer(5460), Array([String("192.168.247.1"), Integer(7001), String("f39ff8fdb4a703de8b5d774a1c97875d4eb9fbf3"), Array([])])]), Array([Integer(5461), Integer(10922), Array([String("192.168.247.1"), Integer(7002), String("e1978f792d552b7367571037c2f3b51240331f47"), Array([])])]), Array([Integer(10923), Integer(16383), Array([String("192.168.247.1"), Integer(7003), String("40ad3e257d4108ecef998073707154513b03c156"), Array([])])])])
+[2m2026-02-26T11:31:36.653901Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-2qrotu7OED: Rebuilding cluster state from host: 192.168.247.1
+[2m2026-02-26T11:31:36.653918Z[0m [35mTRACE[0m [2mfred::protocol::cluster[0m[2m:[0m fred-2qrotu7OED: Skip modifying TLS hostnames.
+[2m2026-02-26T11:31:36.653919Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7003
+[2m2026-02-26T11:31:36.653934Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-2qrotu7OED: Changing cluster connections: ClusterChange { add: [Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }], remove: [] }
+[2m2026-02-26T11:31:36.653938Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7002
+[2m2026-02-26T11:31:36.653947Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-2qrotu7OED: No `on_cluster_change` listeners.
+[2m2026-02-26T11:31:36.653964Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-2qrotu7OED: Connecting to cluster node 192.168.247.1:7001
+[2m2026-02-26T11:31:36.653971Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.653978Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.653998Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-2qrotu7OED: Connecting to cluster node 192.168.247.1:7002
+[2m2026-02-26T11:31:36.654006Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.654014Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.654021Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7003
+[2m2026-02-26T11:31:36.654030Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-2qrotu7OED: Connecting to cluster node 192.168.247.1:7003
+[2m2026-02-26T11:31:36.654036Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-26T11:31:36.654037Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-2qrotu7OED: Found 1 addresses for 192.168.247.1:7002
+[2m2026-02-26T11:31:36.654037Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-2qrotu7OED: Found 1 addresses for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.654043Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.654067Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2m2026-02-26T11:31:36.654068Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-2qrotu7OED: Found 1 addresses for 192.168.247.1:7003
+[2m2026-02-26T11:31:36.654135Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7002
+[2m2026-02-26T11:31:36.654188Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7003
+[2m2026-02-26T11:31:36.658131Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.658131Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.658131Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.658159Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.658147Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.658169Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Skip setting client name.
+[2m2026-02-26T11:31:36.658163Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.658177Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Skip setting client name.
+[2m2026-02-26T11:31:36.658179Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Skip setting client name.
+[2m2026-02-26T11:31:36.658195Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.658195Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.658195Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.658237Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.658245Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.658251Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Skip setting client name.
+[2m2026-02-26T11:31:36.658262Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 24 bytes to 192.168.247.1:7002. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.658285Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.658291Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.658297Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Skip setting client name.
+[2m2026-02-26T11:31:36.658313Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.658320Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.658320Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 24 bytes to 192.168.247.1:7003. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.658326Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Skip setting client name.
+[2m2026-02-26T11:31:36.658341Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 24 bytes to 192.168.247.1:7002. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.658357Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.658362Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.658363Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.658368Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.658369Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Skip setting client name.
+[2m2026-02-26T11:31:36.658374Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Skip setting client name.
+[2m2026-02-26T11:31:36.658380Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 24 bytes to 192.168.247.1:7002. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.658387Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 24 bytes to 192.168.247.1:7003. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.658404Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-26T11:31:36.658409Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Skip authentication without credentials.
+[2m2026-02-26T11:31:36.658415Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Skip setting client name.
+[2m2026-02-26T11:31:36.658429Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 24 bytes to 192.168.247.1:7003. Buffer len: 24 (RESP2)
+[2m2026-02-26T11:31:36.659189Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.659205Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.659218Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Read client ID: Ok(Number { data: 55, attributes: None })
+[2m2026-02-26T11:31:36.659233Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.659247Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.659269Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.659278Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.659285Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Read client ID: Ok(Number { data: 53, attributes: None })
+[2m2026-02-26T11:31:36.659296Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.659307Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.659328Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 5 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.659337Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 5 bytes from 192.168.247.1:7002
+[2m2026-02-26T11:31:36.659345Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Read client ID: Ok(Number { data: 20, attributes: None })
+[2m2026-02-26T11:31:36.659356Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 26 bytes to 192.168.247.1:7002. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.659367Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.659377Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 5 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.659384Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 5 bytes from 192.168.247.1:7003
+[2m2026-02-26T11:31:36.659391Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Read client ID: Ok(Number { data: 37, attributes: None })
+[2m2026-02-26T11:31:36.659402Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 26 bytes to 192.168.247.1:7003. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.659413Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.659442Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 5 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.659451Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 5 bytes from 192.168.247.1:7002
+[2m2026-02-26T11:31:36.659459Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Read client ID: Ok(Number { data: 22, attributes: None })
+[2m2026-02-26T11:31:36.659469Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 26 bytes to 192.168.247.1:7002. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.659480Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.659800Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 5 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.659811Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 5 bytes from 192.168.247.1:7002
+[2m2026-02-26T11:31:36.659819Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Read client ID: Ok(Number { data: 21, attributes: None })
+[2m2026-02-26T11:31:36.659831Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 26 bytes to 192.168.247.1:7002. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.659842Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.659864Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.659871Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.659878Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Read client ID: Ok(Number { data: 54, attributes: None })
+[2m2026-02-26T11:31:36.659889Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.659900Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.659911Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 5 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.659917Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 5 bytes from 192.168.247.1:7003
+[2m2026-02-26T11:31:36.659924Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Read client ID: Ok(Number { data: 38, attributes: None })
+[2m2026-02-26T11:31:36.659935Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 26 bytes to 192.168.247.1:7003. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.659946Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.659968Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 5 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.659975Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 5 bytes from 192.168.247.1:7003
+[2m2026-02-26T11:31:36.659982Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Read client ID: Ok(Number { data: 39, attributes: None })
+[2m2026-02-26T11:31:36.659993Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 26 bytes to 192.168.247.1:7003. Buffer len: 26 (RESP2)
+[2m2026-02-26T11:31:36.660004Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.660667Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 648 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.660695Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 648 bytes from 192.168.247.1:7003
+[2m2026-02-26T11:31:36.660725Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.660734Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Checking cluster info for 192.168.247.1:7003
+[2m2026-02-26T11:31:36.660754Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 27 bytes to 192.168.247.1:7003. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.660774Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.660810Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 648 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.660819Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 648 bytes from 192.168.247.1:7002
+[2m2026-02-26T11:31:36.660831Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.660838Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Checking cluster info for 192.168.247.1:7002
+[2m2026-02-26T11:31:36.660847Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 648 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.660850Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 27 bytes to 192.168.247.1:7002. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.660864Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 648 bytes from 192.168.247.1:7003
+[2m2026-02-26T11:31:36.660880Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.660884Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.660887Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 648 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.660893Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Checking cluster info for 192.168.247.1:7003
+[2m2026-02-26T11:31:36.660896Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 648 bytes from 192.168.247.1:7002
+[2m2026-02-26T11:31:36.660898Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 648 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.660907Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 648 bytes from 192.168.247.1:7003
+[2m2026-02-26T11:31:36.660908Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.660907Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 27 bytes to 192.168.247.1:7003. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.660916Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Checking cluster info for 192.168.247.1:7002
+[2m2026-02-26T11:31:36.660923Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.660926Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.660928Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 27 bytes to 192.168.247.1:7002. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.660931Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Checking cluster info for 192.168.247.1:7003
+[2m2026-02-26T11:31:36.660942Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.660945Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 27 bytes to 192.168.247.1:7003. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.660949Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 648 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.660958Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 648 bytes from 192.168.247.1:7002
+[2m2026-02-26T11:31:36.660958Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.660973Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.660982Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Checking cluster info for 192.168.247.1:7002
+[2m2026-02-26T11:31:36.660986Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 648 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.660993Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 27 bytes to 192.168.247.1:7002. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.660986Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 648 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.661006Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 648 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.661007Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.660997Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 648 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.661017Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.661025Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-p63bWeWfgn: Checking cluster info for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.661026Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 648 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.661031Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.661035Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 648 bytes from 192.168.247.1:7001
+[2m2026-02-26T11:31:36.661036Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.661041Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-w4XbWxfbBC: Checking cluster info for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.661045Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-26T11:31:36.661051Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.661055Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.661052Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-2qrotu7OED: Checking cluster info for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.661072Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.661084Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-26T11:31:36.661098Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.661654Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 602 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.661665Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 602 bytes from 192.168.247.1:7003
+[EVENT][client-0][reconnect] reconnected to 192.168.247.1:7003
+[2m2026-02-26T11:31:36.661747Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-p63bWeWfgn: Subscribe to interrupts for 192.168.247.1:7003
+[2m2026-02-26T11:31:36.661773Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.661773Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Recv 568 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.661784Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 602 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.661786Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-w4XbWxfbBC: Parsed 568 bytes from 192.168.247.1:7002
+[2m2026-02-26T11:31:36.661794Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 602 bytes from 192.168.247.1:7003
+[2m2026-02-26T11:31:36.661797Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Recv 568 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-26T11:31:36.661807Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-p63bWeWfgn: Parsed 568 bytes from 192.168.247.1:7002
+[EVENT][client-2][reconnect] reconnected to 192.168.247.1:7003
+[2m2026-02-26T11:31:36.661852Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-2qrotu7OED: Subscribe to interrupts for 192.168.247.1:7003
+[2m2026-02-26T11:31:36.661868Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-26T11:31:36.662045Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 606 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.662060Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Parsed 606 bytes from 192.168.247.1:7001
+[EVENT][client-2][reconnect] reconnected to 192.168.247.1:7001
+[2m2026-02-26T11:31:36.662133Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-w4XbWxfbBC: Syncing connection state with unresponsive network task.
+[2m2026-02-26T11:31:36.662140Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-2qrotu7OED: Subscribe to interrupts for 192.168.247.1:7001
+[2m2026-02-26T11:31:36.662156Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-2qrotu7OED: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-26T11:31:36.662167Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-w4XbWxfbBC: Ending connection task with Err(Redis Error - kind: Protocol, details: Invalid or missing cluster state.)
+[2m2026-02-26T11:31:36.662176Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-w4XbWxfbBC: No `on_connect` listeners.
+[EVENT][client-1][error] Protocol Error: Invalid or missing cluster state.
+[2m2026-02-26T11:31:36.662227Z[0m [35mTRACE[0m [2mfred::modules::inner[0m[2m:[0m fred-w4XbWxfbBC: Ending network timeout task.
+[2m2026-02-26T11:31:36.662375Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-p63bWeWfgn: Syncing connection state with unresponsive network task.
+[2m2026-02-26T11:31:36.662387Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-p63bWeWfgn: No `on_connect` listeners.
+[2m2026-02-26T11:31:36.662394Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-p63bWeWfgn: No `on_error` listener.
+[2m2026-02-26T11:31:36.662402Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-p63bWeWfgn: Ending connection task with Err(Redis Error - kind: Protocol, details: Invalid or missing cluster state.)
+[2m2026-02-26T11:31:36.662409Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-p63bWeWfgn: No `on_connect` listeners.
+[2m2026-02-26T11:31:36.662415Z[0m [35mTRACE[0m [2mfred::modules::inner[0m[2m:[0m fred-p63bWeWfgn: Ending network timeout task.
+[2m2026-02-26T11:31:36.662489Z[0m [35mTRACE[0m [2mfred::modules::inner[0m[2m:[0m fred-2qrotu7OED: Ending network timeout task.
+Error: Redis Error - kind: Protocol, details: Invalid or missing cluster state.
