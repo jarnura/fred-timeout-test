@@ -17,30 +17,43 @@
 
 use fred::prelude::*;
 use std::{
+  env,
   io::Write,
   time::{Duration, Instant},
 };
+use tracing_subscriber::{fmt, layer::SubscriberExt, util::SubscriberInitExt, EnvFilter};
 
-const HOST_IP: &str = "192.168.215.1";
 const PORT_NODE1: u16 = 7001; // owns "alpha"
 const PORT_NODE2: u16 = 7002; // owns "key1"  ← will be paused
 const PORT_NODE3: u16 = 7003; // owns "beta"
 
 #[tokio::main]
 async fn main() -> Result<(), RedisError> {
-  env_logger::init();
+  // Layer 1: tokio-console (task monitoring via gRPC at localhost:6669)
+  // Layer 2: fmt (fred trace logs to stderr, respects RUST_LOG env var)
+  let console_layer = console_subscriber::spawn();
+  tracing_subscriber::registry()
+    .with(console_layer)
+    .with(fmt::layer().with_writer(std::io::stderr))
+    .with(EnvFilter::from_default_env())
+    .init();
+
+  // HOST_IP: override via env var for running outside the Claude/Docker environment.
+  //   Inside Claude:     192.168.215.1  (docker bridge gateway, default)
+  //   From local Mac:    HOST_IP=127.0.0.1 bash test_tc.sh
+  let host_ip: String = env::var("HOST_IP").unwrap_or_else(|_| "192.168.215.1".to_string());
 
   println!("=== Cluster unresponsive_timeout test ===");
-  println!("  node1 {}:{} → key 'alpha'  (slot 865)", HOST_IP, PORT_NODE1);
-  println!("  node2 {}:{} → key 'key1'   (slot 9189)  ← will be paused", HOST_IP, PORT_NODE2);
-  println!("  node3 {}:{} → key 'beta'   (slot 15419)", HOST_IP, PORT_NODE3);
+  println!("  node1 {}:{} → key 'alpha'  (slot 865)", host_ip, PORT_NODE1);
+  println!("  node2 {}:{} → key 'key1'   (slot 9189)  ← will be paused", host_ip, PORT_NODE2);
+  println!("  node3 {}:{} → key 'beta'   (slot 15419)", host_ip, PORT_NODE3);
   println!();
 
   let config = RedisConfig {
     server: ServerConfig::new_clustered(vec![
-      (HOST_IP, PORT_NODE1),
-      (HOST_IP, PORT_NODE2),
-      (HOST_IP, PORT_NODE3),
+      (host_ip.as_str(), PORT_NODE1),
+      (host_ip.as_str(), PORT_NODE2),
+      (host_ip.as_str(), PORT_NODE3),
     ]),
     ..Default::default()
   };
@@ -48,7 +61,7 @@ async fn main() -> Result<(), RedisError> {
   let perf = PerformanceConfig {
     // Correct config: 60s >> unresponsive_timeout(2s) + cluster sync time
     // For the misconfigured scenario, set this to e.g. 3s (< netem_delay*2=6s)
-    default_command_timeout: Duration::from_secs(60),
+    default_command_timeout: Duration::from_secs(19),
     ..Default::default()
   };
 
@@ -59,12 +72,12 @@ async fn main() -> Result<(), RedisError> {
     max_command_attempts:     3,
     // connection_timeout and internal_command_timeout must be > netem_delay*2 (6s)
     // so that new TCP connections during the reconnect loop succeed.
-    connection_timeout:       Duration::from_secs(15),
-    internal_command_timeout: Duration::from_secs(15),
+    // connection_timeout:       Duration::from_secs(15),
+    // internal_command_timeout: Duration::from_secs(15),
     ..Default::default()
   };
 
-  let policy = ReconnectPolicy::new_constant(10, 1000);
+  let policy = ReconnectPolicy::new_constant(3, 2000);
   let client = RedisClient::new(config, Some(perf), Some(conn), Some(policy));
 
   // Per-node event tracking

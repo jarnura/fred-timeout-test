@@ -1,0 +1,538 @@
+=== CLUSTER TEST (tc netem 15000ms) | RUST_LOG=fred=debug ===
+=== Cluster unresponsive_timeout test ===
+  node1 192.168.247.1:7001 → key 'alpha'  (slot 865)
+  node2 192.168.247.1:7002 → key 'key1'   (slot 9189)  ← will be paused
+  node3 192.168.247.1:7003 → key 'beta'   (slot 15419)
+
+[2026-02-25T15:54:38Z DEBUG fred::router::commands] fred-j5epUa181X: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 3, delay: 2000, jitter: 100 })
+[2026-02-25T15:54:38Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:38Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:54:38Z DEBUG fred::router::types] fred-j5epUa181X: Syncing connection state with unresponsive network task.
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Adding 0 commands to retry buffer.
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Synchronizing cluster state.
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Attempting clustered connections to any of {Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }}
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking connection type. Native-tls: false, Rustls: false
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:38Z TRACE fred::protocol::types] fred-j5epUa181X: Found 1 addresses for 192.168.247.1:7001
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Skip authentication without credentials.
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Skip setting client name.
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read client ID: Ok(Number { data: 33, attributes: None })
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 648 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 648 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking cluster info for 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 566 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 566 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Connected to 192.168.247.1:7001 (1/3)
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 28 bytes to 192.168.247.1:7001. Buffer len: 28 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 304 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 304 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Recv CLUSTER SLOTS response: Array([Array([Integer(0), Integer(5460), Array([String("192.168.247.1"), Integer(7001), String("18d384eb6c93b028a4b88cb22ef52d2be000f941"), Array([])])]), Array([Integer(5461), Integer(10922), Array([String("192.168.247.1"), Integer(7002), String("817b8cd3d753b6d8702bbdf59ab285535e83e3c0"), Array([])])]), Array([Integer(10923), Integer(16383), Array([String("192.168.247.1"), Integer(7003), String("b192336a6d9f4e7b4d36069829732570e0ba45e2"), Array([])])])])
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Rebuilding cluster state from host: 192.168.247.1
+[2026-02-25T15:54:38Z TRACE fred::protocol::cluster] fred-j5epUa181X: Skip modifying TLS hostnames.
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Changing cluster connections: ClusterChange { add: [Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }], remove: [] }
+[2026-02-25T15:54:38Z DEBUG fred::modules::inner] fred-j5epUa181X: No `on_cluster_change` listeners.
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Connecting to cluster node 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking connection type. Native-tls: false, Rustls: false
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Connecting to cluster node 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::protocol::types] fred-j5epUa181X: Found 1 addresses for 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking connection type. Native-tls: false, Rustls: false
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Connecting to cluster node 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking connection type. Native-tls: false, Rustls: false
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:38Z TRACE fred::protocol::types] fred-j5epUa181X: Found 1 addresses for 192.168.247.1:7002
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::protocol::types] fred-j5epUa181X: Found 1 addresses for 192.168.247.1:7003
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7002
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Skip authentication without credentials.
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Skip setting client name.
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Skip authentication without credentials.
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Skip setting client name.
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 24 bytes to 192.168.247.1:7002. Buffer len: 24 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Skip authentication without credentials.
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Skip setting client name.
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 24 bytes to 192.168.247.1:7003. Buffer len: 24 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read client ID: Ok(Number { data: 34, attributes: None })
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7002 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7002
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read client ID: Ok(Number { data: 20, attributes: None })
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 26 bytes to 192.168.247.1:7002. Buffer len: 26 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7003
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read client ID: Ok(Number { data: 26, attributes: None })
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 26 bytes to 192.168.247.1:7003. Buffer len: 26 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 648 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 648 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking cluster info for 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 648 bytes from 192.168.247.1:7002 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 648 bytes from 192.168.247.1:7002
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking cluster info for 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 27 bytes to 192.168.247.1:7002. Buffer len: 27 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 648 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 648 bytes from 192.168.247.1:7003
+[2026-02-25T15:54:38Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking cluster info for 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 27 bytes to 192.168.247.1:7003. Buffer len: 27 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 566 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 566 bytes from 192.168.247.1:7001
+[EVENT][reconnect] reconnected to 192.168.247.1:7001
+[2026-02-25T15:54:38Z DEBUG fred::router::types] fred-j5epUa181X: Subscribe to interrupts for 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 566 bytes from 192.168.247.1:7002 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 566 bytes from 192.168.247.1:7002
+[EVENT][reconnect] reconnected to 192.168.247.1:7002
+[2026-02-25T15:54:38Z DEBUG fred::router::types] fred-j5epUa181X: Subscribe to interrupts for 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 566 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 566 bytes from 192.168.247.1:7003
+[2026-02-25T15:54:38Z DEBUG fred::router::types] fred-j5epUa181X: Subscribe to interrupts for 192.168.247.1:7003
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Finish synchronizing cluster connections.
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:38Z DEBUG fred::router::types] fred-j5epUa181X: Syncing connection state with unresponsive network task.
+[OK] Connected to cluster (3 nodes).
+[2026-02-25T15:54:38Z DEBUG fred::router::commands] fred-j5epUa181X: Starting command processing stream...
+[EVENT][reconnect] reconnected to 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::interfaces] fred-j5epUa181X: Sending command SET (0) to router.
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 19s
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Recv command: RouterCommand { kind: "Command", command: "SET" }
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Writing command: RedisCommand { command: "SET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2026-02-25T15:54:38Z TRACE fred::protocol::command] fred-j5epUa181X: Pipeline check SET: true
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Writing command `SET` to 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Writing SET (0). Timed out: false, Force flush: false
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Sending command SET (0) to 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] Writing and flushing 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 47 bytes to 192.168.247.1:7001. Buffer len: 47 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Sent command to 192.168.247.1:7001. Flushed: true
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Parsing response frame from 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Checking response to SET (0)
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Handling clustered response kind: Respond
+[2026-02-25T15:54:38Z TRACE fred::protocol::responders] fred-j5epUa181X: Respond to caller from 192.168.247.1:7001 for SET with SimpleString
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::interfaces] fred-j5epUa181X: Sending command SET (0) to router.
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 19s
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Recv command: RouterCommand { kind: "Command", command: "SET" }
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Writing command: RedisCommand { command: "SET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2026-02-25T15:54:38Z TRACE fred::protocol::command] fred-j5epUa181X: Pipeline check SET: true
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Writing command `SET` to 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Writing SET (0). Timed out: false, Force flush: false
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Sending command SET (0) to 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] Writing and flushing 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 46 bytes to 192.168.247.1:7002. Buffer len: 46 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Sent command to 192.168.247.1:7002. Flushed: true
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7002 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Parsing response frame from 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Checking response to SET (0)
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Handling clustered response kind: Respond
+[2026-02-25T15:54:38Z TRACE fred::protocol::responders] fred-j5epUa181X: Respond to caller from 192.168.247.1:7002 for SET with SimpleString
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::interfaces] fred-j5epUa181X: Sending command SET (0) to router.
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 19s
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Recv command: RouterCommand { kind: "Command", command: "SET" }
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Writing command: RedisCommand { command: "SET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2026-02-25T15:54:38Z TRACE fred::protocol::command] fred-j5epUa181X: Pipeline check SET: true
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Writing command `SET` to 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Writing SET (0). Timed out: false, Force flush: false
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Sending command SET (0) to 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] Writing and flushing 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 46 bytes to 192.168.247.1:7003. Buffer len: 46 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Sent command to 192.168.247.1:7003. Flushed: true
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Parsing response frame from 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Checking response to SET (0)
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Handling clustered response kind: Respond
+[2026-02-25T15:54:38Z TRACE fred::protocol::responders] fred-j5epUa181X: Respond to caller from 192.168.247.1:7003 for SET with SimpleString
+[OK] SET alpha→node1, key1→node2, beta→node3
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::interfaces] fred-j5epUa181X: Sending command GET (0) to router.
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 19s
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2026-02-25T15:54:38Z TRACE fred::protocol::command] fred-j5epUa181X: Pipeline check GET: true
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Writing command `GET` to 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Writing GET (0). Timed out: false, Force flush: false
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Sending command GET (0) to 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] Writing and flushing 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Sent command to 192.168.247.1:7001. Flushed: true
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 23 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 23 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Parsing response frame from 192.168.247.1:7001
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Checking response to GET (0)
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Handling clustered response kind: Respond
+[2026-02-25T15:54:38Z TRACE fred::protocol::responders] fred-j5epUa181X: Respond to caller from 192.168.247.1:7001 for GET with BlobString
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::interfaces] fred-j5epUa181X: Sending command GET (0) to router.
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 19s
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2026-02-25T15:54:38Z TRACE fred::protocol::command] fred-j5epUa181X: Pipeline check GET: true
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Writing command `GET` to 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Writing GET (0). Timed out: false, Force flush: false
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Sending command GET (0) to 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] Writing and flushing 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 23 bytes to 192.168.247.1:7002. Buffer len: 23 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Sent command to 192.168.247.1:7002. Flushed: true
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 23 bytes from 192.168.247.1:7002 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 23 bytes from 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Parsing response frame from 192.168.247.1:7002
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Checking response to GET (0)
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Handling clustered response kind: Respond
+[2026-02-25T15:54:38Z TRACE fred::protocol::responders] fred-j5epUa181X: Respond to caller from 192.168.247.1:7002 for GET with BlobString
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::interfaces] fred-j5epUa181X: Sending command GET (0) to router.
+[2026-02-25T15:54:38Z TRACE fred::utils] Using timeout: 19s
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2026-02-25T15:54:38Z TRACE fred::protocol::command] fred-j5epUa181X: Pipeline check GET: true
+[2026-02-25T15:54:38Z DEBUG fred::router::clustered] fred-j5epUa181X: Writing command `GET` to 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Writing GET (0). Timed out: false, Force flush: false
+[2026-02-25T15:54:38Z TRACE fred::router::utils] fred-j5epUa181X: Sending command GET (0) to 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::protocol::connection] Writing and flushing 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 23 bytes to 192.168.247.1:7003. Buffer len: 23 (RESP2)
+[2026-02-25T15:54:38Z TRACE fred::router::commands] fred-j5epUa181X: Sent command to 192.168.247.1:7003. Flushed: true
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 23 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 23 bytes from 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Parsing response frame from 192.168.247.1:7003
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Checking response to GET (0)
+[2026-02-25T15:54:38Z TRACE fred::router::clustered] fred-j5epUa181X: Handling clustered response kind: Respond
+[2026-02-25T15:54:38Z TRACE fred::protocol::responders] fred-j5epUa181X: Respond to caller from 192.168.247.1:7003 for GET with BlobString
+[2026-02-25T15:54:38Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[OK] Pre-pause reads: alpha=Some("value-from-node1") key1=Some("value-from-node2") beta=Some("value-from-node3")
+
+[READY_FOR_PAUSE]
+[HOST] >>> tc netem delay 15000ms applied to redis-cluster-2 eth0 at 21:24:38
+[T=0s] node2 (7002) is now paused. Starting concurrent reads...
+       → GET alpha (node1)  should succeed immediately
+       → GET key1  (node2)  should block, then recover after ~10-12s
+       → GET beta  (node3)  should succeed immediately
+
+[READY_FOR_UNPAUSE]
+[2026-02-25T15:54:39Z TRACE fred::interfaces] fred-j5epUa181X: Sending command GET (0) to router.
+[2026-02-25T15:54:39Z TRACE fred::interfaces] fred-j5epUa181X: Sending command GET (0) to router.
+[2026-02-25T15:54:39Z TRACE fred::interfaces] fred-j5epUa181X: Sending command GET (0) to router.
+[2026-02-25T15:54:39Z TRACE fred::utils] Using timeout: 19s
+[2026-02-25T15:54:39Z TRACE fred::utils] Using timeout: 19s
+[2026-02-25T15:54:39Z TRACE fred::utils] Using timeout: 19s
+[2026-02-25T15:54:39Z TRACE fred::router::commands] fred-j5epUa181X: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2026-02-25T15:54:39Z TRACE fred::router::commands] fred-j5epUa181X: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2026-02-25T15:54:39Z TRACE fred::protocol::command] fred-j5epUa181X: Pipeline check GET: true
+[2026-02-25T15:54:39Z DEBUG fred::router::clustered] fred-j5epUa181X: Writing command `GET` to 192.168.247.1:7001
+[2026-02-25T15:54:39Z TRACE fred::router::utils] fred-j5epUa181X: Writing GET (0). Timed out: false, Force flush: false
+[2026-02-25T15:54:39Z TRACE fred::router::utils] fred-j5epUa181X: Sending command GET (0) to 192.168.247.1:7001
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Writing without flushing 192.168.247.1:7001
+[2026-02-25T15:54:39Z TRACE fred::router::commands] fred-j5epUa181X: Sent command to 192.168.247.1:7001. Flushed: false
+[2026-02-25T15:54:39Z TRACE fred::router] fred-j5epUa181X: Checking and flushing sockets...
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushing socket to 192.168.247.1:7001
+[2026-02-25T15:54:39Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushed socket to 192.168.247.1:7001
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushing socket to 192.168.247.1:7002
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushed socket to 192.168.247.1:7002
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushing socket to 192.168.247.1:7003
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushed socket to 192.168.247.1:7003
+[2026-02-25T15:54:39Z TRACE fred::router::commands] fred-j5epUa181X: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2026-02-25T15:54:39Z TRACE fred::router::commands] fred-j5epUa181X: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2026-02-25T15:54:39Z TRACE fred::protocol::command] fred-j5epUa181X: Pipeline check GET: true
+[2026-02-25T15:54:39Z DEBUG fred::router::clustered] fred-j5epUa181X: Writing command `GET` to 192.168.247.1:7002
+[2026-02-25T15:54:39Z TRACE fred::router::utils] fred-j5epUa181X: Writing GET (0). Timed out: false, Force flush: false
+[2026-02-25T15:54:39Z TRACE fred::router::utils] fred-j5epUa181X: Sending command GET (0) to 192.168.247.1:7002
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Writing without flushing 192.168.247.1:7002
+[2026-02-25T15:54:39Z TRACE fred::router::commands] fred-j5epUa181X: Sent command to 192.168.247.1:7002. Flushed: false
+[2026-02-25T15:54:39Z TRACE fred::router] fred-j5epUa181X: Checking and flushing sockets...
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushing socket to 192.168.247.1:7001
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushed socket to 192.168.247.1:7001
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushing socket to 192.168.247.1:7002
+[2026-02-25T15:54:39Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 23 bytes to 192.168.247.1:7002. Buffer len: 23 (RESP2)
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushed socket to 192.168.247.1:7002
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushing socket to 192.168.247.1:7003
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Flushed socket to 192.168.247.1:7003
+[2026-02-25T15:54:39Z TRACE fred::router::commands] fred-j5epUa181X: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2026-02-25T15:54:39Z TRACE fred::router::commands] fred-j5epUa181X: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2026-02-25T15:54:39Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 23 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:39Z TRACE fred::protocol::command] fred-j5epUa181X: Pipeline check GET: true
+[2026-02-25T15:54:39Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 23 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:39Z TRACE fred::router::clustered] fred-j5epUa181X: Parsing response frame from 192.168.247.1:7001
+[2026-02-25T15:54:39Z DEBUG fred::router::clustered] fred-j5epUa181X: Writing command `GET` to 192.168.247.1:7003
+[2026-02-25T15:54:39Z TRACE fred::router::utils] fred-j5epUa181X: Writing GET (0). Timed out: false, Force flush: false
+[2026-02-25T15:54:39Z TRACE fred::router::utils] fred-j5epUa181X: Sending command GET (0) to 192.168.247.1:7003
+[2026-02-25T15:54:39Z TRACE fred::router::clustered] fred-j5epUa181X: Checking response to GET (0)
+[2026-02-25T15:54:39Z TRACE fred::protocol::connection] Writing and flushing 192.168.247.1:7003
+[2026-02-25T15:54:39Z TRACE fred::router::clustered] fred-j5epUa181X: Handling clustered response kind: Respond
+[2026-02-25T15:54:39Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 23 bytes to 192.168.247.1:7003. Buffer len: 23 (RESP2)
+[2026-02-25T15:54:39Z TRACE fred::protocol::responders] fred-j5epUa181X: Respond to caller from 192.168.247.1:7001 for GET with BlobString
+[2026-02-25T15:54:39Z TRACE fred::router::commands] fred-j5epUa181X: Sent command to 192.168.247.1:7003. Flushed: true
+[2026-02-25T15:54:39Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[T=1ms] GET alpha (node1) → Some("value-from-node1")  ✓ unaffected
+[2026-02-25T15:54:39Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 23 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:39Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 23 bytes from 192.168.247.1:7003
+[2026-02-25T15:54:39Z TRACE fred::router::clustered] fred-j5epUa181X: Parsing response frame from 192.168.247.1:7003
+[2026-02-25T15:54:39Z TRACE fred::router::clustered] fred-j5epUa181X: Checking response to GET (0)
+[2026-02-25T15:54:39Z TRACE fred::router::clustered] fred-j5epUa181X: Handling clustered response kind: Respond
+[2026-02-25T15:54:39Z TRACE fred::protocol::responders] fred-j5epUa181X: Respond to caller from 192.168.247.1:7003 for GET with BlobString
+[2026-02-25T15:54:39Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[T=1ms] GET beta  (node3) → Some("value-from-node3")  ✓ unaffected
+[2026-02-25T15:54:40Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:40Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:54:42Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:42Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:54:42Z WARN  fred::router::types] fred-j5epUa181X: Server 192.168.247.1:7002 unresponsive after 2981 ms
+[2026-02-25T15:54:42Z DEBUG fred::router::types] fred-j5epUa181X: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2026-02-25T15:54:42Z DEBUG fred::router::utils] fred-j5epUa181X: Recv interrupt on 192.168.247.1:7002
+[2026-02-25T15:54:42Z DEBUG fred::router::types] fred-j5epUa181X: Unsubscribe from interrupts for 192.168.247.1:7002
+[2026-02-25T15:54:42Z WARN  fred::router::responses] fred-j5epUa181X: Ending reader task from 192.168.247.1:7002 due to Some(Redis Error - kind: IO, details: Unresponsive connection.)
+[2026-02-25T15:54:42Z DEBUG fred::modules::inner] fred-j5epUa181X: Checking reconnect state. Has policy: true, Is intentionally disconnecting: false
+[2026-02-25T15:54:42Z DEBUG fred::modules::inner] fred-j5epUa181X: Sending reconnect message to router for Some(Server { host: "192.168.247.1", port: 7002 })
+[2026-02-25T15:54:42Z DEBUG fred::router::clustered] fred-j5epUa181X: Ending reader task from 192.168.247.1:7002
+[EVENT][error] IO Error: Unresponsive connection.
+[2026-02-25T15:54:42Z TRACE fred::router::commands] fred-j5epUa181X: Recv command: RouterCommand { kind: "Reconnect", server: Some(Server { host: "192.168.247.1", port: 7002 }), force: false }
+[2026-02-25T15:54:42Z DEBUG fred::router::commands] fred-j5epUa181X: Maybe reconnecting to Some(Server { host: "192.168.247.1", port: 7002 }) (force: false)
+[2026-02-25T15:54:42Z DEBUG fred::router::commands] fred-j5epUa181X: Has working connection: false
+[2026-02-25T15:54:42Z DEBUG fred::router::commands] fred-j5epUa181X: Starting reconnection loop...
+[2026-02-25T15:54:42Z DEBUG fred::router::utils] fred-j5epUa181X: Sleeping for 2078 ms.
+[2026-02-25T15:54:42Z DEBUG fred::modules::inner] fred-j5epUa181X: Sleeping for 2078 ms
+[2026-02-25T15:54:44Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:44Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:54:44Z WARN  fred::router::types] fred-j5epUa181X: Server 192.168.247.1:7002 unresponsive after 4983 ms
+[2026-02-25T15:54:44Z DEBUG fred::router::types] fred-j5epUa181X: Could not interrupt reader for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2026-02-25T15:54:44Z DEBUG fred::router] fred-j5epUa181X: Disconnecting from 192.168.247.1:7001
+[2026-02-25T15:54:44Z TRACE fred::utils] Using timeout: 5s
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:44Z DEBUG fred::router::types] fred-j5epUa181X: Unsubscribe from interrupts for 192.168.247.1:7001
+[2026-02-25T15:54:44Z WARN  fred::router::responses] fred-j5epUa181X: Ending reader task from 192.168.247.1:7001 due to None
+[2026-02-25T15:54:44Z DEBUG fred::modules::inner] fred-j5epUa181X: Checking reconnect state. Has policy: true, Is intentionally disconnecting: false
+[2026-02-25T15:54:44Z DEBUG fred::modules::inner] fred-j5epUa181X: Sending reconnect message to router for Some(Server { host: "192.168.247.1", port: 7001 })
+[2026-02-25T15:54:44Z DEBUG fred::router::clustered] fred-j5epUa181X: Ending reader task from 192.168.247.1:7001
+[EVENT][error] Canceled: Canceled.
+[2026-02-25T15:54:44Z DEBUG fred::router] fred-j5epUa181X: Disconnecting from 192.168.247.1:7002
+[2026-02-25T15:54:44Z TRACE fred::utils] Using timeout: 5s
+[2026-02-25T15:54:44Z DEBUG fred::router] fred-j5epUa181X: Disconnecting from 192.168.247.1:7003
+[2026-02-25T15:54:44Z TRACE fred::utils] Using timeout: 5s
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:44Z DEBUG fred::router::types] fred-j5epUa181X: Unsubscribe from interrupts for 192.168.247.1:7003
+[2026-02-25T15:54:44Z WARN  fred::router::responses] fred-j5epUa181X: Ending reader task from 192.168.247.1:7003 due to None
+[2026-02-25T15:54:44Z DEBUG fred::modules::inner] fred-j5epUa181X: Checking reconnect state. Has policy: true, Is intentionally disconnecting: false
+[2026-02-25T15:54:44Z DEBUG fred::modules::inner] fred-j5epUa181X: Sending reconnect message to router for Some(Server { host: "192.168.247.1", port: 7003 })
+[2026-02-25T15:54:44Z DEBUG fred::router::clustered] fred-j5epUa181X: Ending reader task from 192.168.247.1:7003
+[EVENT][error] Canceled: Canceled.
+[2026-02-25T15:54:44Z TRACE fred::router] fred-j5epUa181X: Adding GET (0) command to retry buffer.
+[2026-02-25T15:54:44Z DEBUG fred::router::types] fred-j5epUa181X: Syncing connection state with unresponsive network task.
+[2026-02-25T15:54:44Z TRACE fred::router::clustered] fred-j5epUa181X: Adding 0 commands to retry buffer.
+[2026-02-25T15:54:44Z DEBUG fred::router::clustered] fred-j5epUa181X: Synchronizing cluster state.
+[2026-02-25T15:54:44Z TRACE fred::router::clustered] fred-j5epUa181X: Sending backchannel CLUSTER SLOTS to 192.168.247.1:7001
+[2026-02-25T15:54:44Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 28 bytes to 192.168.247.1:7001. Buffer len: 28 (RESP2)
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 304 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 304 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:44Z TRACE fred::router::clustered] fred-j5epUa181X: Recv CLUSTER SLOTS response: Array([Array([Integer(0), Integer(5460), Array([String("192.168.247.1"), Integer(7001), String("18d384eb6c93b028a4b88cb22ef52d2be000f941"), Array([])])]), Array([Integer(5461), Integer(10922), Array([String("192.168.247.1"), Integer(7002), String("817b8cd3d753b6d8702bbdf59ab285535e83e3c0"), Array([])])]), Array([Integer(10923), Integer(16383), Array([String("192.168.247.1"), Integer(7003), String("b192336a6d9f4e7b4d36069829732570e0ba45e2"), Array([])])])])
+[2026-02-25T15:54:44Z DEBUG fred::router::clustered] fred-j5epUa181X: Rebuilding cluster state from host: 192.168.247.1
+[2026-02-25T15:54:44Z TRACE fred::protocol::cluster] fred-j5epUa181X: Skip modifying TLS hostnames.
+[2026-02-25T15:54:44Z DEBUG fred::router::clustered] fred-j5epUa181X: Changing cluster connections: ClusterChange { add: [Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }], remove: [] }
+[2026-02-25T15:54:44Z DEBUG fred::modules::inner] fred-j5epUa181X: No `on_cluster_change` listeners.
+[2026-02-25T15:54:44Z DEBUG fred::router::clustered] fred-j5epUa181X: Connecting to cluster node 192.168.247.1:7001
+[2026-02-25T15:54:44Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking connection type. Native-tls: false, Rustls: false
+[2026-02-25T15:54:44Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:44Z DEBUG fred::router::clustered] fred-j5epUa181X: Connecting to cluster node 192.168.247.1:7002
+[2026-02-25T15:54:44Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking connection type. Native-tls: false, Rustls: false
+[2026-02-25T15:54:44Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:44Z DEBUG fred::router::clustered] fred-j5epUa181X: Connecting to cluster node 192.168.247.1:7003
+[2026-02-25T15:54:44Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking connection type. Native-tls: false, Rustls: false
+[2026-02-25T15:54:44Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:44Z TRACE fred::protocol::types] fred-j5epUa181X: Found 1 addresses for 192.168.247.1:7002
+[2026-02-25T15:54:44Z TRACE fred::protocol::types] fred-j5epUa181X: Found 1 addresses for 192.168.247.1:7003
+[2026-02-25T15:54:44Z DEBUG fred::protocol::connection] fred-j5epUa181X: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7002
+[2026-02-25T15:54:44Z TRACE fred::protocol::types] fred-j5epUa181X: Found 1 addresses for 192.168.247.1:7001
+[2026-02-25T15:54:44Z DEBUG fred::protocol::connection] fred-j5epUa181X: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7003
+[2026-02-25T15:54:44Z DEBUG fred::protocol::connection] fred-j5epUa181X: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2026-02-25T15:54:44Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:44Z TRACE fred::protocol::connection] fred-j5epUa181X: Skip authentication without credentials.
+[2026-02-25T15:54:44Z DEBUG fred::protocol::connection] fred-j5epUa181X: Skip setting client name.
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2026-02-25T15:54:44Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:44Z TRACE fred::protocol::connection] fred-j5epUa181X: Skip authentication without credentials.
+[2026-02-25T15:54:44Z DEBUG fred::protocol::connection] fred-j5epUa181X: Skip setting client name.
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 24 bytes to 192.168.247.1:7003. Buffer len: 24 (RESP2)
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:44Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read client ID: Ok(Number { data: 35, attributes: None })
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7003
+[2026-02-25T15:54:44Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read client ID: Ok(Number { data: 27, attributes: None })
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 26 bytes to 192.168.247.1:7003. Buffer len: 26 (RESP2)
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 648 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 648 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:44Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2026-02-25T15:54:44Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking cluster info for 192.168.247.1:7001
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 648 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 648 bytes from 192.168.247.1:7003
+[2026-02-25T15:54:44Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2026-02-25T15:54:44Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking cluster info for 192.168.247.1:7003
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 27 bytes to 192.168.247.1:7003. Buffer len: 27 (RESP2)
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 569 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 569 bytes from 192.168.247.1:7001
+[EVENT][reconnect] reconnected to 192.168.247.1:7001
+[2026-02-25T15:54:44Z DEBUG fred::router::types] fred-j5epUa181X: Subscribe to interrupts for 192.168.247.1:7001
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 566 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 566 bytes from 192.168.247.1:7003
+[EVENT][reconnect] reconnected to 192.168.247.1:7003
+[2026-02-25T15:54:44Z DEBUG fred::router::types] fred-j5epUa181X: Subscribe to interrupts for 192.168.247.1:7003
+[2026-02-25T15:54:44Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:46Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:46Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:54:48Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:48Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:54:50Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:50Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:54:52Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:52Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:54:54Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:54Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:54:54Z DEBUG fred::router::types] fred-j5epUa181X: Syncing connection state with unresponsive network task.
+[2026-02-25T15:54:54Z DEBUG fred::router::utils] fred-j5epUa181X: Failed reconnecting with error: Redis Error - kind: Timeout, details: Request timed out.
+[2026-02-25T15:54:54Z DEBUG fred::router::utils] fred-j5epUa181X: Sleeping for 2008 ms.
+[2026-02-25T15:54:54Z DEBUG fred::modules::inner] fred-j5epUa181X: Sleeping for 2008 ms
+[EVENT][error] Timeout Error: Request timed out.
+[2026-02-25T15:54:56Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:56Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:54:56Z DEBUG fred::router::types] fred-j5epUa181X: Syncing connection state with unresponsive network task.
+[2026-02-25T15:54:56Z TRACE fred::router::clustered] fred-j5epUa181X: Adding 0 commands to retry buffer.
+[2026-02-25T15:54:56Z DEBUG fred::router::clustered] fred-j5epUa181X: Synchronizing cluster state.
+[2026-02-25T15:54:56Z TRACE fred::router::clustered] fred-j5epUa181X: Sending backchannel CLUSTER SLOTS to 192.168.247.1:7001
+[2026-02-25T15:54:56Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 28 bytes to 192.168.247.1:7001. Buffer len: 28 (RESP2)
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 304 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 304 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:56Z TRACE fred::router::clustered] fred-j5epUa181X: Recv CLUSTER SLOTS response: Array([Array([Integer(0), Integer(5460), Array([String("192.168.247.1"), Integer(7001), String("18d384eb6c93b028a4b88cb22ef52d2be000f941"), Array([])])]), Array([Integer(5461), Integer(10922), Array([String("192.168.247.1"), Integer(7002), String("817b8cd3d753b6d8702bbdf59ab285535e83e3c0"), Array([])])]), Array([Integer(10923), Integer(16383), Array([String("192.168.247.1"), Integer(7003), String("b192336a6d9f4e7b4d36069829732570e0ba45e2"), Array([])])])])
+[2026-02-25T15:54:56Z DEBUG fred::router::clustered] fred-j5epUa181X: Rebuilding cluster state from host: 192.168.247.1
+[2026-02-25T15:54:56Z TRACE fred::protocol::cluster] fred-j5epUa181X: Skip modifying TLS hostnames.
+[2026-02-25T15:54:56Z DEBUG fred::router::clustered] fred-j5epUa181X: Changing cluster connections: ClusterChange { add: [Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }], remove: [] }
+[2026-02-25T15:54:56Z DEBUG fred::modules::inner] fred-j5epUa181X: No `on_cluster_change` listeners.
+[2026-02-25T15:54:56Z DEBUG fred::router::clustered] fred-j5epUa181X: Connecting to cluster node 192.168.247.1:7001
+[2026-02-25T15:54:56Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking connection type. Native-tls: false, Rustls: false
+[2026-02-25T15:54:56Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:56Z DEBUG fred::router::clustered] fred-j5epUa181X: Connecting to cluster node 192.168.247.1:7002
+[2026-02-25T15:54:56Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking connection type. Native-tls: false, Rustls: false
+[2026-02-25T15:54:56Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:56Z TRACE fred::protocol::types] fred-j5epUa181X: Found 1 addresses for 192.168.247.1:7001
+[2026-02-25T15:54:56Z DEBUG fred::router::clustered] fred-j5epUa181X: Connecting to cluster node 192.168.247.1:7003
+[2026-02-25T15:54:56Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking connection type. Native-tls: false, Rustls: false
+[2026-02-25T15:54:56Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:56Z TRACE fred::protocol::types] fred-j5epUa181X: Found 1 addresses for 192.168.247.1:7002
+[2026-02-25T15:54:56Z TRACE fred::protocol::types] fred-j5epUa181X: Found 1 addresses for 192.168.247.1:7003
+[2026-02-25T15:54:56Z DEBUG fred::protocol::connection] fred-j5epUa181X: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2026-02-25T15:54:56Z DEBUG fred::protocol::connection] fred-j5epUa181X: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7002
+[2026-02-25T15:54:56Z DEBUG fred::protocol::connection] fred-j5epUa181X: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7003
+[2026-02-25T15:54:56Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:56Z TRACE fred::protocol::connection] fred-j5epUa181X: Skip authentication without credentials.
+[2026-02-25T15:54:56Z DEBUG fred::protocol::connection] fred-j5epUa181X: Skip setting client name.
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2026-02-25T15:54:56Z TRACE fred::utils] Using timeout: 10s
+[2026-02-25T15:54:56Z TRACE fred::protocol::connection] fred-j5epUa181X: Skip authentication without credentials.
+[2026-02-25T15:54:56Z DEBUG fred::protocol::connection] fred-j5epUa181X: Skip setting client name.
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 24 bytes to 192.168.247.1:7003. Buffer len: 24 (RESP2)
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:56Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read client ID: Ok(Number { data: 36, attributes: None })
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 5 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 5 bytes from 192.168.247.1:7003
+[2026-02-25T15:54:56Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read client ID: Ok(Number { data: 28, attributes: None })
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 26 bytes to 192.168.247.1:7003. Buffer len: 26 (RESP2)
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 648 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 648 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:56Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2026-02-25T15:54:56Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking cluster info for 192.168.247.1:7001
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 648 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 648 bytes from 192.168.247.1:7003
+[2026-02-25T15:54:56Z DEBUG fred::protocol::connection] fred-j5epUa181X: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2026-02-25T15:54:56Z TRACE fred::protocol::connection] fred-j5epUa181X: Checking cluster info for 192.168.247.1:7003
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Encoded 27 bytes to 192.168.247.1:7003. Buffer len: 27 (RESP2)
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Recv 611 bytes from 192.168.247.1:7001 (RESP2).
+[2026-02-25T15:54:56Z TRACE fred::protocol::codec] fred-j5epUa181X: Parsed 611 bytes from 192.168.247.1:7001
+[2026-02-25T15:54:56Z DEBUG fred::router::types] fred-j5epUa181X: Syncing connection state with unresponsive network task.
+[2026-02-25T15:54:56Z DEBUG fred::router::utils] fred-j5epUa181X: Failed reconnecting with error: Redis Error - kind: Protocol, details: Invalid or missing cluster state.
+[2026-02-25T15:54:56Z DEBUG fred::router::utils] fred-j5epUa181X: Sleeping for 2016 ms.
+[2026-02-25T15:54:56Z DEBUG fred::modules::inner] fred-j5epUa181X: Sleeping for 2016 ms
+[EVENT][error] Protocol Error: Invalid or missing cluster state.
+[2026-02-25T15:54:58Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:54:58Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[T=19001ms] GET key1  (node2) → ERROR: Timeout Error: Request timed out.
+
+[T=19002ms] All GETs completed.
+[DONE] Exiting.
+[2026-02-25T15:54:58Z DEBUG fred::commands::impls::server] fred-j5epUa181X: Closing Redis connection with Quit command.
+[2026-02-25T15:54:58Z TRACE fred::interfaces] fred-j5epUa181X: Sending command QUIT (0) to router.
+[2026-02-25T15:54:58Z TRACE fred::utils] Using timeout: 19s
+[2026-02-25T15:54:58Z DEBUG fred::router::commands] fred-j5epUa181X: Disconnecting after command stream closes.
+[2026-02-25T15:54:58Z DEBUG fred::router::types] fred-j5epUa181X: Syncing connection state with unresponsive network task.
+[2026-02-25T15:54:58Z TRACE fred::router] fred-j5epUa181X: Clearing retry buffer with 1 commands.
+[2026-02-25T15:54:58Z TRACE fred::interfaces] fred-j5epUa181X: Ending connection task with Ok(())
+[HOST] >>> tc netem removed from redis-cluster-2 at 21:24:59
+[2026-02-25T15:55:00Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:55:00Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:55:02Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:55:02Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:55:04Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:55:04Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:55:06Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:55:06Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:55:08Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:55:08Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:55:10Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:55:10Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:55:12Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:55:12Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:55:14Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:55:14Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:55:16Z DEBUG fred::router::types] fred-j5epUa181X: Checking unresponsive connections...
+[2026-02-25T15:55:16Z TRACE fred::router::types] fred-j5epUa181X: Using network timeout: 2s
+[2026-02-25T15:55:17Z TRACE fred::modules::inner] fred-j5epUa181X: Ending network timeout task.
+Error: Redis Error - kind: Timeout, details: Request timed out.

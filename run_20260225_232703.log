@@ -1,0 +1,488 @@
+=== CLUSTER TEST (tc netem 15000ms) | RUST_LOG=fred=debug ===
+=== Cluster unresponsive_timeout test ===
+  node1 192.168.247.1:7001 → key 'alpha'  (slot 865)
+  node2 192.168.247.1:7002 → key 'key1'   (slot 9189)  ← will be paused
+  node3 192.168.247.1:7003 → key 'beta'   (slot 15419)
+
+[2m2026-02-25T17:57:03.695731Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:03.695746Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Initializing router with policy: Some(Constant { attempts: 0, max_attempts: 3, delay: 2000, jitter: 100 })
+[2m2026-02-25T17:57:03.695767Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:03.695852Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Syncing connection state with unresponsive network task.
+[2m2026-02-25T17:57:03.695894Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Adding 0 commands to retry buffer.
+[2m2026-02-25T17:57:03.695941Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Synchronizing cluster state.
+[2m2026-02-25T17:57:03.696031Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Attempting clustered connections to any of {Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }}
+[2m2026-02-25T17:57:03.696054Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-25T17:57:03.696087Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-25T17:57:03.696181Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-V3Yj30TyJT: Found 1 addresses for 192.168.247.1:7001
+[2m2026-02-25T17:57:03.696270Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2m2026-02-25T17:57:03.700911Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-25T17:57:03.700925Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Skip authentication without credentials.
+[2m2026-02-25T17:57:03.700936Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Skip setting client name.
+[2m2026-02-25T17:57:03.701005Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-25T17:57:03.701751Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.701768Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:03.701783Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Read client ID: Ok(Number { data: 39, attributes: None })
+[2m2026-02-25T17:57:03.701822Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-25T17:57:03.701845Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.702328Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 649 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.702345Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 649 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:03.702384Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-25T17:57:03.702395Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Checking cluster info for 192.168.247.1:7001
+[2m2026-02-25T17:57:03.702413Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-25T17:57:03.702436Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.703025Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 609 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.703043Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 609 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:03.703082Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Connected to 192.168.247.1:7001 (1/3)
+[2m2026-02-25T17:57:03.703097Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-25T17:57:03.703134Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 28 bytes to 192.168.247.1:7001. Buffer len: 28 (RESP2)
+[2m2026-02-25T17:57:03.703209Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.703500Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 304 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.703556Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 304 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:03.703601Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Recv CLUSTER SLOTS response: Array([Array([Integer(0), Integer(5460), Array([String("192.168.247.1"), Integer(7001), String("18d384eb6c93b028a4b88cb22ef52d2be000f941"), Array([])])]), Array([Integer(5461), Integer(10922), Array([String("192.168.247.1"), Integer(7002), String("817b8cd3d753b6d8702bbdf59ab285535e83e3c0"), Array([])])]), Array([Integer(10923), Integer(16383), Array([String("192.168.247.1"), Integer(7003), String("b192336a6d9f4e7b4d36069829732570e0ba45e2"), Array([])])])])
+[2m2026-02-25T17:57:03.703624Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Rebuilding cluster state from host: 192.168.247.1
+[2m2026-02-25T17:57:03.703660Z[0m [35mTRACE[0m [2mfred::protocol::cluster[0m[2m:[0m fred-V3Yj30TyJT: Skip modifying TLS hostnames.
+[2m2026-02-25T17:57:03.703709Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Changing cluster connections: ClusterChange { add: [Server { host: "192.168.247.1", port: 7001 }, Server { host: "192.168.247.1", port: 7002 }, Server { host: "192.168.247.1", port: 7003 }], remove: [] }
+[2m2026-02-25T17:57:03.703742Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-V3Yj30TyJT: No `on_cluster_change` listeners.
+[2m2026-02-25T17:57:03.703773Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Connecting to cluster node 192.168.247.1:7001
+[2m2026-02-25T17:57:03.703783Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-25T17:57:03.703794Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-25T17:57:03.703838Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Connecting to cluster node 192.168.247.1:7002
+[2m2026-02-25T17:57:03.703841Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-V3Yj30TyJT: Found 1 addresses for 192.168.247.1:7001
+[2m2026-02-25T17:57:03.703850Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-25T17:57:03.703863Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-25T17:57:03.703888Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Connecting to cluster node 192.168.247.1:7003
+[2m2026-02-25T17:57:03.703898Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Checking connection type. Native-tls: false, Rustls: false
+[2m2026-02-25T17:57:03.703907Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-25T17:57:03.703909Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-V3Yj30TyJT: Found 1 addresses for 192.168.247.1:7002
+[2m2026-02-25T17:57:03.703978Z[0m [35mTRACE[0m [2mfred::protocol::types[0m[2m:[0m fred-V3Yj30TyJT: Found 1 addresses for 192.168.247.1:7003
+[2m2026-02-25T17:57:03.703997Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7001
+[2m2026-02-25T17:57:03.704148Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7002
+[2m2026-02-25T17:57:03.704215Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Creating TCP connection to 192.168.247.1 at 192.168.247.1:7003
+[2m2026-02-25T17:57:03.704760Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-25T17:57:03.704773Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Skip authentication without credentials.
+[2m2026-02-25T17:57:03.704783Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Skip setting client name.
+[2m2026-02-25T17:57:03.704803Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-25T17:57:03.704959Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-25T17:57:03.704967Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Skip authentication without credentials.
+[2m2026-02-25T17:57:03.704976Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Skip setting client name.
+[2m2026-02-25T17:57:03.704998Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 24 bytes to 192.168.247.1:7002. Buffer len: 24 (RESP2)
+[2m2026-02-25T17:57:03.705042Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-25T17:57:03.705049Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Skip authentication without credentials.
+[2m2026-02-25T17:57:03.705058Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Skip setting client name.
+[2m2026-02-25T17:57:03.705079Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 24 bytes to 192.168.247.1:7003. Buffer len: 24 (RESP2)
+[2m2026-02-25T17:57:03.705789Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.705804Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:03.705817Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Read client ID: Ok(Number { data: 40, attributes: None })
+[2m2026-02-25T17:57:03.705836Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 26 bytes to 192.168.247.1:7001. Buffer len: 26 (RESP2)
+[2m2026-02-25T17:57:03.705854Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.706472Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:03.706491Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7002
+[2m2026-02-25T17:57:03.706503Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Read client ID: Ok(Number { data: 22, attributes: None })
+[2m2026-02-25T17:57:03.706521Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 26 bytes to 192.168.247.1:7002. Buffer len: 26 (RESP2)
+[2m2026-02-25T17:57:03.706540Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:03.707238Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:03.707257Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7003
+[2m2026-02-25T17:57:03.707274Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Read client ID: Ok(Number { data: 30, attributes: None })
+[2m2026-02-25T17:57:03.707300Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 26 bytes to 192.168.247.1:7003. Buffer len: 26 (RESP2)
+[2m2026-02-25T17:57:03.707324Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:03.709448Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 649 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.709468Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 649 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:03.709495Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-25T17:57:03.709508Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Checking cluster info for 192.168.247.1:7001
+[2m2026-02-25T17:57:03.709534Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 27 bytes to 192.168.247.1:7001. Buffer len: 27 (RESP2)
+[2m2026-02-25T17:57:03.709553Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.709588Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 649 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:03.709598Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 649 bytes from 192.168.247.1:7002
+[2m2026-02-25T17:57:03.709617Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-25T17:57:03.709626Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Checking cluster info for 192.168.247.1:7002
+[2m2026-02-25T17:57:03.709642Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 27 bytes to 192.168.247.1:7002. Buffer len: 27 (RESP2)
+[2m2026-02-25T17:57:03.709660Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:03.711007Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 649 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:03.711024Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 649 bytes from 192.168.247.1:7003
+[2m2026-02-25T17:57:03.711043Z[0m [34mDEBUG[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Read server version Some(Version { major: 7, minor: 2, patch: 12 })
+[2m2026-02-25T17:57:03.711054Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m fred-V3Yj30TyJT: Checking cluster info for 192.168.247.1:7003
+[2m2026-02-25T17:57:03.711071Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 27 bytes to 192.168.247.1:7003. Buffer len: 27 (RESP2)
+[2m2026-02-25T17:57:03.711090Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:03.711121Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 568 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:03.711137Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 568 bytes from 192.168.247.1:7002
+[EVENT][reconnect] reconnected to 192.168.247.1:7002
+[2m2026-02-25T17:57:03.711226Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Subscribe to interrupts for 192.168.247.1:7002
+[2m2026-02-25T17:57:03.711252Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:03.711277Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 609 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.711297Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 609 bytes from 192.168.247.1:7001
+[EVENT][reconnect] reconnected to 192.168.247.1:7001
+[2m2026-02-25T17:57:03.711385Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Subscribe to interrupts for 192.168.247.1:7001
+[2m2026-02-25T17:57:03.711408Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.711760Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 604 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:03.711774Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 604 bytes from 192.168.247.1:7003
+[2m2026-02-25T17:57:03.711843Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Finish synchronizing cluster connections.
+[2m2026-02-25T17:57:03.711845Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Subscribe to interrupts for 192.168.247.1:7003
+[2m2026-02-25T17:57:03.711867Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:03.711875Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Syncing connection state with unresponsive network task.
+[2m2026-02-25T17:57:03.711902Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Starting command processing stream...
+[OK] Connected to cluster (3 nodes).
+[EVENT][reconnect] reconnected to 192.168.247.1:7003
+[2m2026-02-25T17:57:03.711975Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Sending command SET (0) to router.
+[2m2026-02-25T17:57:03.712004Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 19s
+[2m2026-02-25T17:57:03.712019Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv command: RouterCommand { kind: "Command", command: "SET" }
+[2m2026-02-25T17:57:03.712094Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Writing command: RedisCommand { command: "SET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2m2026-02-25T17:57:03.712111Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-V3Yj30TyJT: Pipeline check SET: true
+[2m2026-02-25T17:57:03.712131Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Writing command `SET` to 192.168.247.1:7001
+[2m2026-02-25T17:57:03.712143Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing SET (0). Timed out: false, Force flush: false
+[2m2026-02-25T17:57:03.712161Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command SET (0) to 192.168.247.1:7001
+[2m2026-02-25T17:57:03.712174Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 192.168.247.1:7001
+[2m2026-02-25T17:57:03.712194Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 47 bytes to 192.168.247.1:7001. Buffer len: 47 (RESP2)
+[2m2026-02-25T17:57:03.712249Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Sent command to 192.168.247.1:7001. Flushed: true
+[2m2026-02-25T17:57:03.712583Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.712595Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:03.712612Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7001
+[2m2026-02-25T17:57:03.712628Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to SET (0)
+[2m2026-02-25T17:57:03.712637Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Respond
+[2m2026-02-25T17:57:03.712661Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Respond to caller from 192.168.247.1:7001 for SET with SimpleString
+[2m2026-02-25T17:57:03.712686Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.712712Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Sending command SET (0) to router.
+[2m2026-02-25T17:57:03.712731Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 19s
+[2m2026-02-25T17:57:03.712761Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv command: RouterCommand { kind: "Command", command: "SET" }
+[2m2026-02-25T17:57:03.712792Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Writing command: RedisCommand { command: "SET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2m2026-02-25T17:57:03.712806Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-V3Yj30TyJT: Pipeline check SET: true
+[2m2026-02-25T17:57:03.712821Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Writing command `SET` to 192.168.247.1:7002
+[2m2026-02-25T17:57:03.712831Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing SET (0). Timed out: false, Force flush: false
+[2m2026-02-25T17:57:03.712841Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command SET (0) to 192.168.247.1:7002
+[2m2026-02-25T17:57:03.712855Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 192.168.247.1:7002
+[2m2026-02-25T17:57:03.712870Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 46 bytes to 192.168.247.1:7002. Buffer len: 46 (RESP2)
+[2m2026-02-25T17:57:03.712899Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Sent command to 192.168.247.1:7002. Flushed: true
+[2m2026-02-25T17:57:03.713187Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:03.713198Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7002
+[2m2026-02-25T17:57:03.713207Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7002
+[2m2026-02-25T17:57:03.713216Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to SET (0)
+[2m2026-02-25T17:57:03.713223Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Respond
+[2m2026-02-25T17:57:03.713231Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Respond to caller from 192.168.247.1:7002 for SET with SimpleString
+[2m2026-02-25T17:57:03.713247Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:03.713288Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Sending command SET (0) to router.
+[2m2026-02-25T17:57:03.713309Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 19s
+[2m2026-02-25T17:57:03.713335Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv command: RouterCommand { kind: "Command", command: "SET" }
+[2m2026-02-25T17:57:03.713374Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Writing command: RedisCommand { command: "SET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2m2026-02-25T17:57:03.713391Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-V3Yj30TyJT: Pipeline check SET: true
+[2m2026-02-25T17:57:03.713409Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Writing command `SET` to 192.168.247.1:7003
+[2m2026-02-25T17:57:03.713420Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing SET (0). Timed out: false, Force flush: false
+[2m2026-02-25T17:57:03.713434Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command SET (0) to 192.168.247.1:7003
+[2m2026-02-25T17:57:03.713445Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 192.168.247.1:7003
+[2m2026-02-25T17:57:03.713461Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 46 bytes to 192.168.247.1:7003. Buffer len: 46 (RESP2)
+[2m2026-02-25T17:57:03.713499Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Sent command to 192.168.247.1:7003. Flushed: true
+[2m2026-02-25T17:57:03.713788Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:03.713799Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7003
+[2m2026-02-25T17:57:03.713808Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7003
+[2m2026-02-25T17:57:03.713817Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to SET (0)
+[2m2026-02-25T17:57:03.713824Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Respond
+[2m2026-02-25T17:57:03.713831Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Respond to caller from 192.168.247.1:7003 for SET with SimpleString
+[2m2026-02-25T17:57:03.713846Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[OK] SET alpha→node1, key1→node2, beta→node3
+[2m2026-02-25T17:57:03.713868Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to router.
+[2m2026-02-25T17:57:03.713906Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 19s
+[2m2026-02-25T17:57:03.713927Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-25T17:57:03.713944Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2m2026-02-25T17:57:03.713959Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-V3Yj30TyJT: Pipeline check GET: true
+[2m2026-02-25T17:57:03.713998Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Writing command `GET` to 192.168.247.1:7001
+[2m2026-02-25T17:57:03.714007Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-25T17:57:03.714026Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to 192.168.247.1:7001
+[2m2026-02-25T17:57:03.714034Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 192.168.247.1:7001
+[2m2026-02-25T17:57:03.714051Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-25T17:57:03.714080Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Sent command to 192.168.247.1:7001. Flushed: true
+[2m2026-02-25T17:57:03.714291Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 23 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.714302Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 23 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:03.714311Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7001
+[2m2026-02-25T17:57:03.714319Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to GET (0)
+[2m2026-02-25T17:57:03.714328Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Respond
+[2m2026-02-25T17:57:03.714349Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Respond to caller from 192.168.247.1:7001 for GET with BlobString
+[2m2026-02-25T17:57:03.714365Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:03.714393Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to router.
+[2m2026-02-25T17:57:03.714414Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 19s
+[2m2026-02-25T17:57:03.714434Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-25T17:57:03.714451Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2m2026-02-25T17:57:03.714496Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-V3Yj30TyJT: Pipeline check GET: true
+[2m2026-02-25T17:57:03.714510Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Writing command `GET` to 192.168.247.1:7002
+[2m2026-02-25T17:57:03.714518Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-25T17:57:03.714529Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to 192.168.247.1:7002
+[2m2026-02-25T17:57:03.714538Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 192.168.247.1:7002
+[2m2026-02-25T17:57:03.714553Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 23 bytes to 192.168.247.1:7002. Buffer len: 23 (RESP2)
+[2m2026-02-25T17:57:03.714585Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Sent command to 192.168.247.1:7002. Flushed: true
+[2m2026-02-25T17:57:03.714822Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 23 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:03.714834Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 23 bytes from 192.168.247.1:7002
+[2m2026-02-25T17:57:03.714844Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7002
+[2m2026-02-25T17:57:03.714853Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to GET (0)
+[2m2026-02-25T17:57:03.714860Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Respond
+[2m2026-02-25T17:57:03.714867Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Respond to caller from 192.168.247.1:7002 for GET with BlobString
+[2m2026-02-25T17:57:03.714887Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:03.714922Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to router.
+[2m2026-02-25T17:57:03.714938Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 19s
+[2m2026-02-25T17:57:03.714961Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-25T17:57:03.714977Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2m2026-02-25T17:57:03.714988Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-V3Yj30TyJT: Pipeline check GET: true
+[2m2026-02-25T17:57:03.714999Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Writing command `GET` to 192.168.247.1:7003
+[2m2026-02-25T17:57:03.715007Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-25T17:57:03.715047Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to 192.168.247.1:7003
+[2m2026-02-25T17:57:03.715055Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 192.168.247.1:7003
+[2m2026-02-25T17:57:03.715067Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 23 bytes to 192.168.247.1:7003. Buffer len: 23 (RESP2)
+[2m2026-02-25T17:57:03.715092Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Sent command to 192.168.247.1:7003. Flushed: true
+[2m2026-02-25T17:57:03.715307Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 23 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:03.715319Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 23 bytes from 192.168.247.1:7003
+[2m2026-02-25T17:57:03.715328Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7003
+[2m2026-02-25T17:57:03.715337Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to GET (0)
+[2m2026-02-25T17:57:03.715344Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Respond
+[2m2026-02-25T17:57:03.715351Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Respond to caller from 192.168.247.1:7003 for GET with BlobString
+[2m2026-02-25T17:57:03.715365Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[OK] Pre-pause reads: alpha=Some("value-from-node1") key1=Some("value-from-node2") beta=Some("value-from-node3")
+
+[READY_FOR_PAUSE]
+[HOST] >>> tc netem delay 15000ms applied to redis-cluster-2 eth0 at 23:27:03
+[T=0s] node2 (7002) is now paused. Starting concurrent reads...
+       → GET alpha (node1)  should succeed immediately
+       → GET key1  (node2)  should block, then recover after ~10-12s
+       → GET beta  (node3)  should succeed immediately
+
+[READY_FOR_UNPAUSE]
+[2m2026-02-25T17:57:04.717186Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to router.
+[2m2026-02-25T17:57:04.717186Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to router.
+[2m2026-02-25T17:57:04.717186Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to router.
+[2m2026-02-25T17:57:04.717255Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 19s
+[2m2026-02-25T17:57:04.717257Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 19s
+[2m2026-02-25T17:57:04.717263Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 19s
+[2m2026-02-25T17:57:04.717321Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-25T17:57:04.717387Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2m2026-02-25T17:57:04.717406Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-V3Yj30TyJT: Pipeline check GET: true
+[2m2026-02-25T17:57:04.717458Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Writing command `GET` to 192.168.247.1:7003
+[2m2026-02-25T17:57:04.717470Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-25T17:57:04.717498Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to 192.168.247.1:7003
+[2m2026-02-25T17:57:04.717511Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing without flushing 192.168.247.1:7003
+[2m2026-02-25T17:57:04.717530Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Sent command to 192.168.247.1:7003. Flushed: false
+[2m2026-02-25T17:57:04.717545Z[0m [35mTRACE[0m [2mfred::router[0m[2m:[0m fred-V3Yj30TyJT: Checking and flushing sockets...
+[2m2026-02-25T17:57:04.717571Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushing socket to 192.168.247.1:7001
+[2m2026-02-25T17:57:04.717605Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushed socket to 192.168.247.1:7001
+[2m2026-02-25T17:57:04.717613Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushing socket to 192.168.247.1:7003
+[2m2026-02-25T17:57:04.717644Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 23 bytes to 192.168.247.1:7003. Buffer len: 23 (RESP2)
+[2m2026-02-25T17:57:04.717800Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushed socket to 192.168.247.1:7003
+[2m2026-02-25T17:57:04.717809Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushing socket to 192.168.247.1:7002
+[2m2026-02-25T17:57:04.717817Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushed socket to 192.168.247.1:7002
+[2m2026-02-25T17:57:04.717849Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-25T17:57:04.717883Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2m2026-02-25T17:57:04.717896Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-V3Yj30TyJT: Pipeline check GET: true
+[2m2026-02-25T17:57:04.717911Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Writing command `GET` to 192.168.247.1:7001
+[2m2026-02-25T17:57:04.717920Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-25T17:57:04.717933Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to 192.168.247.1:7001
+[2m2026-02-25T17:57:04.717942Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing without flushing 192.168.247.1:7001
+[2m2026-02-25T17:57:04.717953Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Sent command to 192.168.247.1:7001. Flushed: false
+[2m2026-02-25T17:57:04.717963Z[0m [35mTRACE[0m [2mfred::router[0m[2m:[0m fred-V3Yj30TyJT: Checking and flushing sockets...
+[2m2026-02-25T17:57:04.717974Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushing socket to 192.168.247.1:7001
+[2m2026-02-25T17:57:04.717991Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 24 bytes to 192.168.247.1:7001. Buffer len: 24 (RESP2)
+[2m2026-02-25T17:57:04.718025Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushed socket to 192.168.247.1:7001
+[2m2026-02-25T17:57:04.718034Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushing socket to 192.168.247.1:7003
+[2m2026-02-25T17:57:04.718042Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushed socket to 192.168.247.1:7003
+[2m2026-02-25T17:57:04.718049Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushing socket to 192.168.247.1:7002
+[2m2026-02-25T17:57:04.718056Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushed socket to 192.168.247.1:7002
+[2m2026-02-25T17:57:04.718077Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv command: RouterCommand { kind: "Command", command: "GET" }
+[2m2026-02-25T17:57:04.718106Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Writing command: RedisCommand { command: "GET", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2m2026-02-25T17:57:04.718120Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-V3Yj30TyJT: Pipeline check GET: true
+[2m2026-02-25T17:57:04.718132Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Writing command `GET` to 192.168.247.1:7002
+[2m2026-02-25T17:57:04.718144Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing GET (0). Timed out: false, Force flush: false
+[2m2026-02-25T17:57:04.718166Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command GET (0) to 192.168.247.1:7002
+[2m2026-02-25T17:57:04.718176Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 192.168.247.1:7002
+[2m2026-02-25T17:57:04.718191Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 23 bytes to 192.168.247.1:7002. Buffer len: 23 (RESP2)
+[2m2026-02-25T17:57:04.718219Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Sent command to 192.168.247.1:7002. Flushed: true
+[2m2026-02-25T17:57:04.719204Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 23 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:04.719233Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 23 bytes from 192.168.247.1:7003
+[2m2026-02-25T17:57:04.719272Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7003
+[2m2026-02-25T17:57:04.719284Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to GET (0)
+[2m2026-02-25T17:57:04.719334Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Respond
+[2m2026-02-25T17:57:04.719347Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Respond to caller from 192.168.247.1:7003 for GET with BlobString
+[2m2026-02-25T17:57:04.719375Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[T=2ms] GET beta  (node3) → Some("value-from-node3")  ✓ unaffected
+[2m2026-02-25T17:57:04.719472Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 23 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:04.719492Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 23 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:04.719506Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7001
+[2m2026-02-25T17:57:04.719519Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to GET (0)
+[2m2026-02-25T17:57:04.719527Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Respond
+[2m2026-02-25T17:57:04.719536Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Respond to caller from 192.168.247.1:7001 for GET with BlobString
+[2m2026-02-25T17:57:04.719548Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[T=2ms] GET alpha (node1) → Some("value-from-node1")  ✓ unaffected
+[2m2026-02-25T17:57:05.697713Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:05.697760Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:07.700040Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:07.700138Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:07.700186Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 2981 ms
+[2m2026-02-25T17:57:07.700259Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:07.700416Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Recv interrupt on 192.168.247.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-25T17:57:09.701622Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:09.701647Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:09.701661Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 4983 ms
+[2m2026-02-25T17:57:09.701686Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:11.703354Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:11.703409Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:11.703436Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 6985 ms
+[2m2026-02-25T17:57:11.703496Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:13.705434Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:13.705515Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:13.705546Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 8987 ms
+[2m2026-02-25T17:57:13.705606Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:15.707554Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:15.707579Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:15.707595Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 10989 ms
+[2m2026-02-25T17:57:15.707624Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:17.708473Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:17.708538Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:17.708564Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 12990 ms
+[2m2026-02-25T17:57:17.708610Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:19.709859Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:19.709905Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:19.709930Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 14991 ms
+[2m2026-02-25T17:57:19.709977Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:19.720608Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 23 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:19.720697Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 23 bytes from 192.168.247.1:7002
+[2m2026-02-25T17:57:19.720734Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7002
+[2m2026-02-25T17:57:19.720756Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to GET (0)
+[2m2026-02-25T17:57:19.720771Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Respond
+[2m2026-02-25T17:57:19.720788Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Respond to caller from 192.168.247.1:7002 for GET with BlobString
+[2m2026-02-25T17:57:19.720830Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Recv interrupt on 192.168.247.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-25T17:57:19.720842Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[T=15004ms] GET key1  (node2) → Some("value-from-node2")  ← recovered after reconnect
+
+[T=15004ms] All GETs completed.
+[DONE] Exiting.
+[2m2026-02-25T17:57:19.721053Z[0m [34mDEBUG[0m [2mfred::commands::impls::server[0m[2m:[0m fred-V3Yj30TyJT: Closing Redis connection with Quit command.
+[2m2026-02-25T17:57:19.721110Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-V3Yj30TyJT: No `close` listeners.
+[2m2026-02-25T17:57:19.721136Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Sending command QUIT (0) to router.
+[2m2026-02-25T17:57:19.721173Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 19s
+[2m2026-02-25T17:57:19.721259Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv command: RouterCommand { kind: "Command", command: "QUIT" }
+[2m2026-02-25T17:57:19.721424Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Writing command: RedisCommand { command: "QUIT", attempts_remaining: 3, redirections_remaining: 5, can_pipeline: true, write_attempts: 0, timeout_dur: Some(19s), no_backpressure: false }
+[2m2026-02-25T17:57:19.721449Z[0m [35mTRACE[0m [2mfred::protocol::command[0m[2m:[0m fred-V3Yj30TyJT: Pipeline check QUIT: false
+[2m2026-02-25T17:57:19.721472Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Allocating 3 null responses in buffer for QUIT.
+[2m2026-02-25T17:57:19.721503Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Sending all cluster command to 192.168.247.1:7001 with index 0, ID: 0
+[2m2026-02-25T17:57:19.721519Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing QUIT (0). Timed out: false, Force flush: true
+[2m2026-02-25T17:57:19.721537Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command QUIT (0) to 192.168.247.1:7001
+[2m2026-02-25T17:57:19.721555Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 192.168.247.1:7001
+[2m2026-02-25T17:57:19.721584Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 14 bytes to 192.168.247.1:7001. Buffer len: 14 (RESP2)
+[2m2026-02-25T17:57:19.721656Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Sending all cluster command to 192.168.247.1:7003 with index 1, ID: 0
+[2m2026-02-25T17:57:19.721670Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing QUIT (0). Timed out: false, Force flush: true
+[2m2026-02-25T17:57:19.721682Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command QUIT (0) to 192.168.247.1:7003
+[2m2026-02-25T17:57:19.721702Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 192.168.247.1:7003
+[2m2026-02-25T17:57:19.721721Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 14 bytes to 192.168.247.1:7003. Buffer len: 14 (RESP2)
+[2m2026-02-25T17:57:19.721753Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Sending all cluster command to 192.168.247.1:7002 with index 2, ID: 0
+[2m2026-02-25T17:57:19.721768Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Writing QUIT (0). Timed out: false, Force flush: true
+[2m2026-02-25T17:57:19.721780Z[0m [35mTRACE[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Sending command QUIT (0) to 192.168.247.1:7002
+[2m2026-02-25T17:57:19.721791Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Writing and flushing 192.168.247.1:7002
+[2m2026-02-25T17:57:19.721805Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 14 bytes to 192.168.247.1:7002. Buffer len: 14 (RESP2)
+[2m2026-02-25T17:57:19.721836Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Sent command to all servers.
+[2m2026-02-25T17:57:19.721938Z[0m [35mTRACE[0m [2mfred::router[0m[2m:[0m fred-V3Yj30TyJT: Checking and flushing sockets...
+[2m2026-02-25T17:57:19.721993Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushing socket to 192.168.247.1:7001
+[2m2026-02-25T17:57:19.722005Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushed socket to 192.168.247.1:7001
+[2m2026-02-25T17:57:19.722014Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushing socket to 192.168.247.1:7003
+[2m2026-02-25T17:57:19.722023Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushed socket to 192.168.247.1:7003
+[2m2026-02-25T17:57:19.722033Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushing socket to 192.168.247.1:7002
+[2m2026-02-25T17:57:19.722041Z[0m [35mTRACE[0m [2mfred::protocol::connection[0m[2m:[0m Flushed socket to 192.168.247.1:7002
+[2m2026-02-25T17:57:19.722072Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Waiting on router channel.
+[2m2026-02-25T17:57:19.722574Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:19.722593Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:19.722610Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7001
+[2m2026-02-25T17:57:19.722622Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to QUIT (0)
+[2m2026-02-25T17:57:19.722632Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Buffer
+[2m2026-02-25T17:57:19.722678Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Handling `buffer` response from 192.168.247.1:7001 for QUIT. Is error: false, Index: 0, ID: 0
+[2m2026-02-25T17:57:19.722695Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m (192.168.247.1:7001) Add buffered frame SimpleString at index 0 with length 3
+[2m2026-02-25T17:57:19.722710Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Waiting on 2 more responses to all nodes command, ID: 0
+[2m2026-02-25T17:57:19.722727Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:19.722774Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:19.722791Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Unsubscribe from interrupts for 192.168.247.1:7001
+[2m2026-02-25T17:57:19.722821Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:19.722835Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7003
+[2m2026-02-25T17:57:19.722848Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7003
+[2m2026-02-25T17:57:19.722860Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to QUIT (0)
+[2m2026-02-25T17:57:19.722870Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Buffer
+[2m2026-02-25T17:57:19.722880Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Handling `buffer` response from 192.168.247.1:7003 for QUIT. Is error: false, Index: 1, ID: 0
+[2m2026-02-25T17:57:19.722891Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m (192.168.247.1:7003) Add buffered frame SimpleString at index 1 with length 3
+[2m2026-02-25T17:57:19.722903Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Waiting on 1 more responses to all nodes command, ID: 0
+[2m2026-02-25T17:57:19.722916Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:19.722928Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7003 (RESP2).
+[2m2026-02-25T17:57:19.722940Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Unsubscribe from interrupts for 192.168.247.1:7003
+[2m2026-02-25T17:57:19.723817Z[0m [33m WARN[0m [2mfred::router::responses[0m[2m:[0m fred-V3Yj30TyJT: Ending reader task from 192.168.247.1:7001 due to None
+[2m2026-02-25T17:57:19.723818Z[0m [33m WARN[0m [2mfred::router::responses[0m[2m:[0m fred-V3Yj30TyJT: Ending reader task from 192.168.247.1:7003 due to None
+[2m2026-02-25T17:57:19.723844Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-V3Yj30TyJT: Checking reconnect state. Has policy: true, Is intentionally disconnecting: true
+[2m2026-02-25T17:57:19.723857Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Ending reader task from 192.168.247.1:7003
+[2m2026-02-25T17:57:19.723843Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-V3Yj30TyJT: Checking reconnect state. Has policy: true, Is intentionally disconnecting: true
+[2m2026-02-25T17:57:19.723924Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Ending reader task from 192.168.247.1:7001
+[2m2026-02-25T17:57:21.712934Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:21.712992Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:23.715700Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:23.715752Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:23.715796Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 3994 ms
+[2m2026-02-25T17:57:23.715866Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[HOST] >>> tc netem removed from redis-cluster-2 at 23:27:24
+[2m2026-02-25T17:57:25.718082Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:25.718121Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:25.718147Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 5996 ms
+[2m2026-02-25T17:57:25.718190Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:27.720606Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:27.720664Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:27.720691Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 7998 ms
+[2m2026-02-25T17:57:27.720745Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:29.722107Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:29.722142Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:29.722161Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 10000 ms
+[2m2026-02-25T17:57:29.722196Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:31.723558Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:31.723618Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:31.723648Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 12001 ms
+[2m2026-02-25T17:57:31.723703Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:33.725862Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:33.725913Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:33.725943Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 14004 ms
+[2m2026-02-25T17:57:33.726002Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:35.728173Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Checking unresponsive connections...
+[2m2026-02-25T17:57:35.728226Z[0m [35mTRACE[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Using network timeout: 2s
+[2m2026-02-25T17:57:35.728259Z[0m [33m WARN[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Server 192.168.247.1:7002 unresponsive after 16006 ms
+[2m2026-02-25T17:57:35.728312Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Interrupting reader task for 192.168.247.1:7002
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[2m2026-02-25T17:57:36.661658Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:36.661689Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7002
+[2m2026-02-25T17:57:36.661704Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Parsing response frame from 192.168.247.1:7002
+[2m2026-02-25T17:57:36.661713Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Checking response to QUIT (0)
+[2m2026-02-25T17:57:36.661721Z[0m [35mTRACE[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Handling clustered response kind: Buffer
+[2m2026-02-25T17:57:36.661728Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Handling `buffer` response from 192.168.247.1:7002 for QUIT. Is error: false, Index: 2, ID: 0
+[2m2026-02-25T17:57:36.661736Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m (192.168.247.1:7002) Add buffered frame SimpleString at index 2 with length 3
+[2m2026-02-25T17:57:36.661744Z[0m [35mTRACE[0m [2mfred::protocol::responders[0m[2m:[0m fred-V3Yj30TyJT: Responding to caller after last buffered response from 192.168.247.1:7002, ID: 0
+[2m2026-02-25T17:57:36.661780Z[0m [34mDEBUG[0m [2mfred::router::utils[0m[2m:[0m fred-V3Yj30TyJT: Recv interrupt on 192.168.247.1:7002 - ignoring, continuing to wait for frame
+[2m2026-02-25T17:57:36.661788Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:36.661796Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7002 (RESP2).
+[2m2026-02-25T17:57:36.661803Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Unsubscribe from interrupts for 192.168.247.1:7002
+[2m2026-02-25T17:57:36.661837Z[0m [33m WARN[0m [2mfred::router::responses[0m[2m:[0m fred-V3Yj30TyJT: Ending reader task from 192.168.247.1:7002 due to None
+[2m2026-02-25T17:57:36.661845Z[0m [34mDEBUG[0m [2mfred::modules::inner[0m[2m:[0m fred-V3Yj30TyJT: Checking reconnect state. Has policy: true, Is intentionally disconnecting: true
+[2m2026-02-25T17:57:36.661852Z[0m [34mDEBUG[0m [2mfred::router::clustered[0m[2m:[0m fred-V3Yj30TyJT: Ending reader task from 192.168.247.1:7002
+[2m2026-02-25T17:57:36.661942Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Recv router response.
+[2m2026-02-25T17:57:36.661951Z[0m [35mTRACE[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Ending command loop after QUIT or SHUTDOWN.
+[2m2026-02-25T17:57:36.661949Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 10s
+[2m2026-02-25T17:57:36.661959Z[0m [34mDEBUG[0m [2mfred::router::commands[0m[2m:[0m fred-V3Yj30TyJT: Disconnecting after command stream closes.
+[2m2026-02-25T17:57:36.661968Z[0m [34mDEBUG[0m [2mfred::router[0m[2m:[0m fred-V3Yj30TyJT: Disconnecting from 192.168.247.1:7001
+[2m2026-02-25T17:57:36.661979Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-25T17:57:36.661980Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Encoded 14 bytes to 192.168.247.1:7001. Buffer len: 14 (RESP2)
+[2m2026-02-25T17:57:36.662024Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 0 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:36.662088Z[0m [34mDEBUG[0m [2mfred::router[0m[2m:[0m fred-V3Yj30TyJT: Disconnecting from 192.168.247.1:7003
+[2m2026-02-25T17:57:36.662096Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-25T17:57:36.662127Z[0m [34mDEBUG[0m [2mfred::router[0m[2m:[0m fred-V3Yj30TyJT: Disconnecting from 192.168.247.1:7002
+[2m2026-02-25T17:57:36.662135Z[0m [35mTRACE[0m [2mfred::utils[0m[2m:[0m Using timeout: 5s
+[2m2026-02-25T17:57:36.662163Z[0m [34mDEBUG[0m [2mfred::router::types[0m[2m:[0m fred-V3Yj30TyJT: Syncing connection state with unresponsive network task.
+[2m2026-02-25T17:57:36.662172Z[0m [35mTRACE[0m [2mfred::router[0m[2m:[0m fred-V3Yj30TyJT: Clearing retry buffer with 0 commands.
+[2m2026-02-25T17:57:36.662183Z[0m [35mTRACE[0m [2mfred::interfaces[0m[2m:[0m fred-V3Yj30TyJT: Ending connection task with Ok(())
+[2m2026-02-25T17:57:36.663517Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Recv 5 bytes from 192.168.247.1:7001 (RESP2).
+[2m2026-02-25T17:57:36.663531Z[0m [35mTRACE[0m [2mfred::protocol::codec[0m[2m:[0m fred-V3Yj30TyJT: Parsed 5 bytes from 192.168.247.1:7001
+[2m2026-02-25T17:57:36.663631Z[0m [35mTRACE[0m [2mfred::modules::inner[0m[2m:[0m fred-V3Yj30TyJT: Ending network timeout task.
+=== CLUSTER TEST COMPLETE ===

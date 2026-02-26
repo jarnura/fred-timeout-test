@@ -1,0 +1,43 @@
+=== CLUSTER TEST (tc netem 15000ms) | RUST_LOG=fred=debug ===
+=== Cluster unresponsive_timeout test ===
+  node1 192.168.247.1:7001 → key 'alpha'  (slot 865)
+  node2 192.168.247.1:7002 → key 'key1'   (slot 9189)  ← will be paused
+  node3 192.168.247.1:7003 → key 'beta'   (slot 15419)
+
+[EVENT][reconnect] reconnected to 192.168.247.1:7001
+[EVENT][reconnect] reconnected to 192.168.247.1:7002
+[EVENT][reconnect] reconnected to 192.168.247.1:7003
+[OK] Connected to cluster (3 nodes).
+[OK] SET alpha→node1, key1→node2, beta→node3
+[OK] Pre-pause reads: alpha=Some("value-from-node1") key1=Some("value-from-node2") beta=Some("value-from-node3")
+
+[READY_FOR_PAUSE]
+[HOST] >>> tc netem delay 15000ms applied to redis-cluster-2 eth0 at 23:22:42
+[T=0s] node2 (7002) is now paused. Starting concurrent reads...
+       → GET alpha (node1)  should succeed immediately
+       → GET key1  (node2)  should block, then recover after ~10-12s
+       → GET beta  (node3)  should succeed immediately
+
+[READY_FOR_UNPAUSE]
+[T=1ms] GET alpha (node1) → Some("value-from-node1")  ✓ unaffected
+[T=1ms] GET beta  (node3) → Some("value-from-node3")  ✓ unaffected
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[T=14998ms] GET key1  (node2) → Some("value-from-node2")  ← recovered after reconnect
+
+[T=14998ms] All GETs completed.
+[DONE] Exiting.
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[HOST] >>> tc netem removed from redis-cluster-2 at 23:23:03
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+[EVENT][unresponsive] node 192.168.247.1:7002 went unresponsive
+=== CLUSTER TEST COMPLETE ===

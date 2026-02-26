@@ -21,7 +21,19 @@ set -euo pipefail
 #      — so new TCP connections during fred's reconnect loop can complete (each
 #        packet is delayed one-way, so a full RTT = DELAY_MS*2)
 # Default: 3s satisfies both (3s > 2s, and 6s RTT < 15s timeouts).
-DELAY_MS=${DELAY_MS:-3000}
+DELAY_MS=${DELAY_MS:-15000}
+
+# HOST_IP: IP that the Rust binary uses to reach the Redis cluster.
+# Must match CLUSTER_ANNOUNCE_IP used when `docker compose up` was run.
+#   Inside Claude / CI:  192.168.215.1  (docker bridge gateway, default)
+#   From local Mac:      HOST_IP=127.0.0.1 bash test_tc.sh
+#
+# NOTE: If changing HOST_IP for the first time, you must also restart the
+# cluster with the matching CLUSTER_ANNOUNCE_IP so CLUSTER SLOTS returns
+# the right address:
+#   CLUSTER_ANNOUNCE_IP=127.0.0.1 docker compose up -d --force-recreate
+HOST_IP=${HOST_IP:-192.168.215.1}
+export HOST_IP
 
 # Ensure tc is available in the container
 if ! docker exec redis-cluster-2 which tc >/dev/null 2>&1; then
@@ -37,15 +49,18 @@ trap cleanup EXIT INT TERM
 echo "=== CLUSTER TEST (tc netem ${DELAY_MS}ms) | RUST_LOG=fred=debug ==="
 cd ~/github/fred-timeout-test
 
-RUST_LOG=fred=debug ./target/debug/cluster 2>&1 | while IFS= read -r line; do
+RUST_LOG=fred=trace ./target/debug/cluster 2>&1 | while IFS= read -r line; do
   echo "$line"
   if [[ "$line" == "[READY_FOR_PAUSE]" ]]; then
     docker exec redis-cluster-2 tc qdisc add dev eth0 root netem delay "${DELAY_MS}ms"
     echo "[HOST] >>> tc netem delay ${DELAY_MS}ms applied to redis-cluster-2 eth0 at $(date +%T)"
   fi
   if [[ "$line" == "[READY_FOR_UNPAUSE]" ]]; then
+    # Remove netem shortly after fred detects the unresponsive node and starts
+    # reconnecting (~2s for watchdog + 1s buffer). This ensures node2 is clean
+    # when fred's SyncCluster attempts to reconnect to it.
     (
-      sleep 15
+      sleep 20
       cleanup
       echo "[HOST] >>> tc netem removed from redis-cluster-2 at $(date +%T)"
     ) &
